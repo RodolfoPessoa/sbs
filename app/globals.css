@@ -42,6 +42,16 @@ button, a { font: inherit; }
 .flag-frame { background: #fff; padding: 5px; box-shadow: 0 8px 24px #183b2d1c; margin-bottom: 8%; }
 .flag-frame img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 280; object-fit: cover; }
 .flap h2 { font-size: clamp(23px, 2.75vw, 42px); margin-bottom: 10px; }
+.flap-profile { margin-top: 8%; padding: 6% 6% 5%; border-left: 3px solid var(--gold); background: #fffaf0b8; box-shadow: 0 6px 18px #3b2a1d0b; }
+.flap-profile-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5%; }
+.flap-profile-title span { color: var(--coral); font-size: clamp(5px, .55vw, 8px); font-weight: 800; letter-spacing: .16em; }
+.flap-profile-title i { width: clamp(20px, 2vw, 30px); aspect-ratio: 1; border-radius: 50%; background: var(--forest); color: #fff; display: grid; place-items: center; font-size: clamp(6px, .58vw, 9px); font-style: normal; font-weight: 800; }
+.flap-profile > p { color: #4b5e55; font-size: clamp(6px, .67vw, 10px); line-height: 1.4; }
+.flap-profile > p strong { color: var(--deep); }
+.flap-profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 9px; margin-top: 6%; padding-top: 5%; border-top: 1px solid #cfc5b2; }
+.flap-profile-grid div { display: grid; gap: 2px; }
+.flap-profile-grid span { color: #778078; font-size: clamp(4px, .43vw, 6.5px); font-weight: 800; letter-spacing: .1em; }
+.flap-profile-grid strong { color: var(--forest); font-family: Georgia, serif; font-size: clamp(7px, .7vw, 10.5px); line-height: 1.1; }
 .flap-data { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: auto; padding: 7% 0 8%; border-top: 1px solid #bdb7a9; }
 .flap-data strong, .flap-data span { display: block; }
 .flap-data strong { color: var(--coral); font-family: Georgia, serif; font-size: clamp(10px, 1vw, 15px); }

@@ -126,6 +126,19 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
         </div>
         <h2>São Bento<br />do Sul.</h2>
         <p className="lead">Tradição, trabalho e natureza no Planalto Norte de Santa Catarina.</p>
+        <div className="flap-profile">
+          <div className="flap-profile-title">
+            <span>RETRATO RÁPIDO</span>
+            <i aria-hidden="true">SC</i>
+          </div>
+          <p>Quem nasce em São Bento do Sul é <strong>são-bentense</strong>. A cidade está em uma região serrana, próxima à divisa de Santa Catarina com o Paraná.</p>
+          <div className="flap-profile-grid">
+            <div><span>REGIÃO</span><strong>Planalto Norte</strong></div>
+            <div><span>ALTITUDE</span><strong>838 m</strong></div>
+            <div><span>ESTADO</span><strong>Santa Catarina</strong></div>
+            <div><span>COORDENADAS</span><strong>26°15′S · 49°23′O</strong></div>
+          </div>
+        </div>
         <div className="flap-data">
           <div><strong>87.661</strong><span>habitantes<br />estimados</span></div>
           <div><strong>495 km²</strong><span>de área<br />territorial</span></div>
