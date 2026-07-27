@@ -21,6 +21,7 @@
 # misc
 .dev-server.log
 .dev-server.err.log
+tmp/
 .DS_Store
 *.pem
 
