@@ -35,11 +35,11 @@ const details: Record<DetailKey, {
   economia: {
     kicker: "VOCAÇÃO PRODUTIVA",
     title: "Da madeira à indústria diversificada",
-    intro: "A transformação da madeira está na origem da economia local e ajudou a construir um dos polos moveleiros mais conhecidos do Brasil.",
+    intro: "A madeira sempre foi importante para a economia da cidade. Com o tempo, São Bento do Sul ficou conhecida no Brasil e em outros países pela fabricação de móveis.",
     image: "/foto-cidade-05.jpg",
     imageAlt: "Arquitetura e paisagem de São Bento do Sul",
     facts: [["Móveis", "setor de referência"], ["Metalurgia", "cadeia industrial"], ["Cerâmica", "produção diversificada"], ["Têxtil", "fiação e confecção"]],
-    paragraphs: ["As primeiras serrarias, carpintarias e marcenarias aproveitavam imbuía, pinheiro e canela. Ao longo do tempo, a produção ganhou escala, tecnologia e mercados internacionais.", "Hoje, plásticos, metalurgia, cerâmica, têxtil, comércio e serviços complementam a base produtiva do município."],
+    paragraphs: ["No começo, serrarias e pequenas oficinas usavam madeiras como imbuía, pinheiro e canela. Depois, as fábricas cresceram, passaram a usar novas tecnologias e começaram a vender móveis para vários países.", "Hoje, a cidade também produz plásticos, peças de metal, cerâmica, tecidos e outros produtos. O comércio e os serviços também ajudam a movimentar a economia."],
     links: [["Ver o Plano Municipal de Turismo", "https://turismoemsaobento.sc.gov.br/assets/plano_municipal_de_turismo.pdf"]],
   },
   cidade: {
@@ -157,7 +157,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
       <article className="panel back-cover economy">
         <div className="eyebrow">ECONOMIA</div>
         <h2>Trabalho que<br />ganha o mundo.</h2>
-        <p>A transformação da madeira moldou a vocação produtiva do município. Das primeiras serrarias e marcenarias nasceu um polo moveleiro reconhecido nacional e internacionalmente.</p>
+        <p>A madeira sempre foi importante para a cidade. No começo, havia serrarias e pequenas oficinas de móveis. Com o tempo, São Bento do Sul ficou conhecida no Brasil e em outros países pela fabricação de móveis.</p>
         <div className="economy-number">
           <strong>R$ 60,5 mil</strong>
           <span>PIB por habitante · 2023</span>
