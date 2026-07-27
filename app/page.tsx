@@ -10,7 +10,7 @@ const details: Record<DetailKey, {
   intro: string;
   image?: string;
   imageAlt?: string;
-  facts: [string, string][];
+  facts: [string, string, string?][];
   paragraphs: string[];
   links: [string, string][];
   gallery?: [string, string, string][];
@@ -21,7 +21,14 @@ const details: Record<DetailKey, {
     intro: "Um panorama rápido para compreender o território, a população e a qualidade de vida.",
     image: "/bandeira-sao-bento-do-sul.png",
     imageAlt: "Bandeira de São Bento do Sul",
-    facts: [["87.661", "habitantes estimados em 2025"], ["495 km²", "área territorial"], ["838 m", "altitude aproximada"], ["0,782", "IDHM"], ["R$ 60.499", "PIB per capita em 2023"], ["4215802", "código IBGE"]],
+    facts: [
+      ["87.661", "habitantes estimados em 2025"],
+      ["495 km²", "área territorial"],
+      ["838 m", "altitude aproximada"],
+      ["0,782", "IDHM", "É uma nota que ajuda a entender como é viver em uma cidade. Ela observa três coisas: se as pessoas vivem bastante, se estudam e se têm renda. Quanto mais perto de 1, melhores costumam ser essas condições."],
+      ["R$ 60.499", "PIB per capita em 2023", "Primeiro somamos o valor de tudo o que a cidade produz em um ano. Depois dividimos esse total pelo número de moradores. O resultado é uma média para comparar cidades — não quer dizer que cada pessoa recebe esse dinheiro."],
+      ["4215802", "código IBGE", "É como o número de identificação da cidade. O IBGE usa esse código para não confundir municípios com nomes parecidos e para organizar mapas, censos e pesquisas."],
+    ],
     paragraphs: ["O município está no Planalto Norte catarinense, próximo à divisa com o Paraná. Sua localização favorece conexões com Curitiba, Joinville, o litoral e outros centros do Sul do país."],
     links: [["Consultar dados no IBGE", "https://www.ibge.gov.br/cidades-e-estados/sc/sao-bento-do-sul.html"]],
   },
@@ -123,6 +130,12 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
           <div><strong>87.661</strong><span>habitantes<br />estimados</span></div>
           <div><strong>495 km²</strong><span>de área<br />territorial</span></div>
           <div><strong>1873</strong><span>ano de<br />fundação</span></div>
+        </div>
+        <div className="print-glossary">
+          <b>PARA ENTENDER OS DADOS</b>
+          <p><strong>IDHM:</strong> nota sobre saúde, educação e renda.</p>
+          <p><strong>PIB per capita:</strong> média do valor produzido por morador.</p>
+          <p><strong>Código IBGE:</strong> número oficial que identifica o município.</p>
         </div>
         <p className="microcopy">Abra e conheça São Bento do Sul →</p>
         <PanelTrigger detail="dados" open={open} />
@@ -244,6 +257,18 @@ export default function Home() {
   const [side, setSide] = useState<"front" | "back">("front");
   const [folds, setFolds] = useState(true);
   const [activeDetail, setActiveDetail] = useState<DetailKey | null>(null);
+  const [activeFact, setActiveFact] = useState<string | null>(null);
+  const selectedFact = activeDetail && activeFact
+    ? details[activeDetail].facts.find(([, label]) => label === activeFact)
+    : undefined;
+  const openDetail = (detail: DetailKey) => {
+    setActiveFact(null);
+    setActiveDetail(detail);
+  };
+  const closeDetail = () => {
+    setActiveFact(null);
+    setActiveDetail(null);
+  };
 
   return (
     <main>
@@ -264,7 +289,7 @@ export default function Home() {
 
       <div className={`workspace ${folds ? "show-folds" : ""}`}>
         <div className="side-label">{side === "front" ? "LADO EXTERNO" : "LADO INTERNO"}</div>
-        {side === "front" ? <Front open={setActiveDetail} /> : <Back open={setActiveDetail} />}
+        {side === "front" ? <Front open={openDetail} /> : <Back open={openDetail} />}
         <p className="hint">Dica: na impressão, escolha A4 horizontal, escala 100% e ative “gráficos de fundo”.</p>
       </div>
 
@@ -275,10 +300,10 @@ export default function Home() {
 
       {activeDetail && (
         <div className="detail-backdrop" role="presentation" onMouseDown={(event) => {
-          if (event.target === event.currentTarget) setActiveDetail(null);
+          if (event.target === event.currentTarget) closeDetail();
         }}>
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
-            <button className="modal-close" onClick={() => setActiveDetail(null)} aria-label="Fechar informações">×</button>
+            <button className="modal-close" onClick={closeDetail} aria-label="Fechar informações">×</button>
             <div className={`detail-visual ${activeDetail === "mapas" ? "map-mode" : ""}`}>
               {details[activeDetail].image && <img src={details[activeDetail].image} alt={details[activeDetail].imageAlt || ""} />}
               <span>{details[activeDetail].kicker}</span>
@@ -288,10 +313,30 @@ export default function Home() {
               <h2 id="detail-title">{details[activeDetail].title}</h2>
               <p className="detail-intro">{details[activeDetail].intro}</p>
               <div className="detail-facts">
-                {details[activeDetail].facts.map(([value, label]) => (
-                  <div key={`${value}-${label}`}><strong>{value}</strong><span>{label}</span></div>
+                {details[activeDetail].facts.map(([value, label, explanation]) => (
+                  <div className={`fact-card ${explanation ? "has-explainer" : ""}`} key={`${value}-${label}`}>
+                    <strong>{value}</strong><span>{label}</span>
+                    {explanation && (
+                      <>
+                        <button
+                          className="fact-info"
+                          aria-label={`Entenda o que significa ${label}`}
+                          aria-expanded={activeFact === label}
+                          onClick={() => setActiveFact(activeFact === label ? null : label)}
+                        >i</button>
+                        <div className="fact-tooltip" role="tooltip">{explanation}</div>
+                      </>
+                    )}
+                  </div>
                 ))}
               </div>
+              {selectedFact?.[2] && (
+                <div className="fact-learning-panel" aria-live="polite">
+                  <span>ENTENDA ESTE DADO</span>
+                  <h3>O que significa {selectedFact[1]}?</h3>
+                  <p>{selectedFact[2]}</p>
+                </div>
+              )}
               <div className="detail-text">
                 {details[activeDetail].paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
