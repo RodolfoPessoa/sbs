@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #17352c;
-  --forest: #214d3d;
-  --deep: #102d25;
-  --cream: #f2ead8;
-  --paper: #fbf7ed;
-  --gold: #d7a93e;
-  --coral: #d76e49;
+  --ink: #3b2a1d;
+  --forest: #2e5943;
+  --deep: #4a2f1c;
+  --cream: #f3ecdc;
+  --paper: #fffaf0;
+  --gold: #c8952f;
+  --coral: #a8321e;
 }
 
 * { box-sizing: border-box; }
@@ -95,18 +95,17 @@ button, a { font: inherit; }
 .location { background: var(--cream) !important; }
 .location h2 { margin-bottom: 8px; }
 .location-art { height: 31%; position: relative; margin: 1% -2% 3%; overflow: hidden; border-radius: 2px; }
-.location-art > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 56%; display: block; mix-blend-mode: multiply; }
+.location-art > img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; mix-blend-mode: multiply; }
 .map-label { position: absolute; z-index: 2; display: grid; gap: 1px; padding: 5px 7px; box-shadow: 0 3px 10px #102d2528; line-height: 1; }
 .map-label strong { font-size: clamp(5px, .52vw, 8px); letter-spacing: .06em; }
 .map-label small { font-size: clamp(4px, .44vw, 7px); opacity: .78; }
 .map-label-south { left: 5%; bottom: 10%; background: var(--forest); color: #fff; }
 .map-label-state { right: 5%; bottom: 29%; background: var(--coral); color: #fff; }
-.map-label-city { right: 8%; top: 7%; max-width: 34%; background: var(--gold); color: var(--ink); border-left: 3px solid var(--coral); }
-.municipal-map { height: 19%; display: grid; grid-template-columns: 48% 1fr; gap: 8px; align-items: center; background: #fff; padding: 5px; border: 1px solid #d6cfbf; }
-.municipal-map img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.municipal-map div { display: grid; gap: 3px; }
-.municipal-map b { font-size: clamp(5px, .55vw, 8px); letter-spacing: .08em; color: var(--coral); }
-.municipal-map span { font-size: clamp(5px, .48vw, 7px); line-height: 1.25; }
+.map-label-city { right: 3%; top: 5%; max-width: 42%; background: var(--gold); color: var(--ink); border-left: 3px solid var(--coral); }
+.state-map-pin { position: absolute; z-index: 3; right: 17%; top: 32%; width: 15px; height: 15px; border-radius: 50%; background: var(--coral); color: transparent; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--coral), 0 4px 10px #0005; }
+.nearby-cities { display: flex; flex-wrap: wrap; gap: 4px; align-content: start; padding-top: 6px; border-top: 1px solid #cbbfa8; }
+.nearby-cities b { width: 100%; margin-bottom: 2px; color: var(--coral); font-size: clamp(5px, .55vw, 8px); letter-spacing: .15em; }
+.nearby-cities span { padding: 4px 5px; background: #fff; font-size: clamp(4px, .46vw, 7px); color: var(--deep); box-shadow: 0 2px 5px #3b2a1d12; }
 .location-copy { margin-top: 5% !important; font-size: clamp(6px, .62vw, 9px) !important; line-height: 1.35 !important; }
 .curiosities { background: var(--forest) !important; color: #fff; }
 .curiosities .eyebrow { color: var(--gold); }
@@ -129,6 +128,8 @@ button, a { font: inherit; }
 .detail-visual { min-height: 540px; position: relative; background: var(--forest); overflow: hidden; }
 .detail-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, #102d25d9 100%); }
 .detail-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-visual.map-mode { background: var(--cream); }
+.detail-visual.map-mode img { object-fit: contain; }
 .detail-visual span { position: absolute; z-index: 2; left: 28px; bottom: 26px; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .18em; }
 .detail-content { padding: 52px 52px 42px; }
 .detail-kicker { margin: 0 0 10px; color: var(--coral); font-size: 10px; font-weight: 800; letter-spacing: .2em; }
@@ -141,6 +142,10 @@ button, a { font: inherit; }
 .detail-facts span { margin-top: 5px; font-size: 10px; line-height: 1.25; color: #65736c; }
 .detail-text { display: grid; gap: 10px; }
 .detail-text p { margin: 0; font-size: 14px; line-height: 1.55; }
+.detail-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 22px; }
+.detail-gallery figure { margin: 0; height: 112px; position: relative; overflow: hidden; background: var(--cream); }
+.detail-gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-gallery figcaption { position: absolute; inset: auto 0 0; padding: 5px 6px; background: #3b2a1dcc; color: #fff; font-size: 9px; }
 .detail-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .detail-links a { padding: 10px 12px; background: var(--forest); color: #fff; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 3px; }
 .detail-links a:hover, .detail-links a:focus-visible { background: var(--coral); }
@@ -158,6 +163,7 @@ button, a { font: inherit; }
   .detail-visual { min-height: 220px; max-height: 260px; }
   .detail-content { padding: 30px 24px; }
   .detail-facts { grid-template-columns: repeat(2, 1fr); }
+  .detail-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
 @page { size: A4 landscape; margin: 0; }

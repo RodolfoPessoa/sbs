@@ -13,6 +13,7 @@ const details: Record<DetailKey, {
   facts: [string, string][];
   paragraphs: string[];
   links: [string, string][];
+  gallery?: [string, string, string][];
 }> = {
   dados: {
     kicker: "RETRATO DO MUNICÍPIO",
@@ -38,19 +39,19 @@ const details: Record<DetailKey, {
     kicker: "CONHEÇA SÃO BENTO",
     title: "Uma cidade entre tradição e natureza",
     intro: "Patrimônio, trabalho, cultura e paisagens de serra formam uma identidade singular no Planalto Norte.",
-    image: "/foto-cidade-01.jpg",
-    imageAlt: "Praça Jardim dos Imigrantes",
-    facts: [["1873", "início da colonização"], ["1884", "instalação do município"], ["Caminho dos Príncipes", "região turística"], ["Clima temperado", "característica local"]],
-    paragraphs: ["A herança de diferentes povos aparece na arquitetura, na música, nas festas, na gastronomia e nos modos de produzir. O contato com araucárias, rios e áreas rurais completa a experiência da cidade."],
+    image: "/acervo-catedral-centro.jpg",
+    imageAlt: "Vista do centro e da Igreja Matriz de São Bento do Sul",
+    facts: [["70 pioneiros", "lembrados no Monumento ao Imigrante"], ["22 mil m²", "Parque 23 de Setembro"], ["1913", "inauguração da estação ferroviária"], ["112 anos", "de história da Banda Treml em 2026"]],
+    paragraphs: ["A herança de diferentes povos aparece na arquitetura, na música, nas festas, na gastronomia e nos modos de produzir. O contato com araucárias, rios e áreas rurais completa a experiência da cidade.", "Curiosidades: a Estrada Imperial Dona Francisca é apontada pelo Plano Municipal de Turismo como a segunda estrada carroçável do Brasil; a Casa Eichendorf foi construída no final do século XIX; e a antiga estação ferroviária hoje abriga o Museu da Música."],
     links: [["Portal oficial de turismo", "https://www.turismoemsaobento.sc.gov.br/"]],
   },
   historia: {
     kicker: "LINHA DO TEMPO",
     title: "Da Colônia Dona Francisca ao município",
     intro: "A formação de São Bento do Sul reúne presença indígena, colonização europeia e a abertura de caminhos entre o planalto e o litoral.",
-    image: "/foto-cidade-05.jpg",
+    image: "/acervo-casa-eichendorf.jpg",
     imageAlt: "Edificação histórica de São Bento do Sul",
-    facts: [["1873", "chegada dos primeiros colonos"], ["1876", "nome São Bento"], ["1883", "elevação à vila"], ["1884", "município instalado"], ["1893", "sede temporária do governo estadual"]],
+    facts: [["1858", "abertura da Estrada Dona Francisca"], ["1873", "chegada dos pioneiros"], ["1876", "nome São Bento"], ["1883", "criação do município"], ["1884", "instalação oficial"], ["1893", "sede temporária do governo estadual"]],
     paragraphs: ["A região era habitada por indígenas Xokleng. A partir de 1873, famílias alemãs, austríacas, polonesas e tchecas chegaram por meio da Sociedade Colonizadora de Hamburgo.", "Em 1876, Alfredo Taunay visitou a colônia e o núcleo recebeu o nome de São Bento. A memória desse percurso está preservada em museus, edificações e monumentos."],
     links: [["História no portal de turismo", "https://turismoemsaobento.sc.gov.br/ver?conteudo=saobentodosul"]],
   },
@@ -58,21 +59,29 @@ const details: Record<DetailKey, {
     kicker: "EXPLORE O TERRITÓRIO",
     title: "Do Sul do Brasil às ruas da cidade",
     intro: "Dois mapas ajudam a entender a posição estratégica e a forma do município.",
-    image: "/mapa-sul-planalto-norte-v2.png",
-    imageAlt: "Mapa em camadas da Região Sul e do Planalto Norte",
-    facts: [["BR-280", "principal acesso regional"], ["SC-418", "ligação com o litoral"], ["Paraná", "divisa ao norte"], ["Planalto Norte", "região de Santa Catarina"]],
-    paragraphs: ["O mapa em camadas localiza São Bento do Sul no Planalto Norte. A cartografia do IBGE detalha os limites municipais, a rede viária e a concentração urbana."],
-    links: [["Abrir mapa municipal do IBGE", "/mapa-municipal-ibge.png"], ["Abrir geoprocessamento municipal", "https://geo.saobentodosul.sc.gov.br/"]],
+    image: "/mapa-santa-catarina-ibge.jpg",
+    imageAlt: "Mapa completo do estado de Santa Catarina produzido pelo IBGE",
+    facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
+    paragraphs: ["O mapa mostra Santa Catarina por inteiro e destaca o nordeste do estado, onde São Bento do Sul se aproxima da divisa com o Paraná.", "No entorno imediato estão Rio Negrinho e Campo Alegre. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba são referências regionais importantes para acesso, serviços e turismo."],
+    links: [["Abrir mapa estadual do IBGE", "/mapa-santa-catarina-ibge.jpg"], ["Abrir mapa municipal do IBGE", "/mapa-municipal-ibge.png"], ["Geoprocessamento municipal", "https://geo.saobentodosul.sc.gov.br/"]],
   },
   turismo: {
     kicker: "ROTEIROS & EXPERIÊNCIAS",
     title: "O que conhecer em São Bento do Sul",
     intro: "A cidade combina patrimônio histórico, natureza, cicloturismo, compras, gastronomia, eventos e turismo rural.",
-    image: "/foto-cidade-04.jpg",
-    imageAlt: "Igreja Matriz Puríssimo Coração de Maria",
-    facts: [["Museu Dr. Felippe Maria Wolff", "história local"], ["Museu da Música", "memória musical"], ["Estrada Dona Francisca", "paisagem e patrimônio"], ["Circuito das Araucárias", "cicloturismo"], ["Rio Natal", "paisagens e mirantes"], ["Jardim dos Imigrantes", "centro e convivência"]],
-    paragraphs: ["O Plano Municipal de Turismo identifica como forças da cidade o turismo de experiência, cultural, de natureza, negócios, compras, gastronomia e história.", "Na lousa digital, esta seção pode receber novos vídeos, roteiros, fotografias e atividades pedagógicas conforme o projeto evoluir."],
+    image: "/acervo-maria-fumaca.jpg",
+    imageAlt: "Maria Fumaça em meio à Mata Atlântica",
+    facts: [["Museu Dr. Felippe Maria Wolff", "história local"], ["Museu da Música", "memória musical"], ["Estrada Dona Francisca", "paisagem e patrimônio"], ["Schlachtfest", "maior festa da cidade"], ["Rio Vermelho", "cultura e paisagem rural"], ["Parque das Aves", "fauna e educação ambiental"]],
+    paragraphs: ["O Plano Municipal de Turismo identifica como forças da cidade o turismo de experiência, cultural, de natureza, negócios, compras, gastronomia e história.", "A Schlachtfest reúne música, dança e gastronomia germânica. A estação ferroviária, inaugurada em 1913, preserva a memória do trem e hoje abriga o Museu da Música."],
     links: [["Ver todos os atrativos", "https://www.turismoemsaobento.sc.gov.br/"], ["Buscar vídeos sobre o destino", "https://www.youtube.com/results?search_query=turismo+São+Bento+do+Sul+SC"]],
+    gallery: [
+      ["/acervo-catedral-centro.jpg", "Centro de São Bento do Sul e Igreja Matriz", "Centro & Matriz"],
+      ["/acervo-casa-eichendorf.jpg", "Casa Eichendorf", "Casa Eichendorf"],
+      ["/acervo-museu.jpg", "Museu Municipal Dr. Felippe Maria Wolff", "Museu Municipal"],
+      ["/acervo-rio-vermelho.jpg", "Igreja de Rio Vermelho Povoado", "Rio Vermelho"],
+      ["/acervo-schlachtfest.jpg", "Desfile da Schlachtfest", "Schlachtfest"],
+      ["/acervo-parque-das-aves.jpg", "Aves em área de visitação", "Parque das Aves"],
+    ],
   },
 };
 
@@ -88,21 +97,14 @@ function LocationArt() {
   return (
     <div className="location-art" aria-label="Localização: Brasil, Santa Catarina, São Bento do Sul">
       <img
-        src="/mapa-sul-planalto-norte-v2.png"
-        alt="Mapa em camadas mostrando a Região Sul do Brasil, Santa Catarina e a posição de São Bento do Sul no Planalto Norte"
+        src="/mapa-santa-catarina-ibge.jpg"
+        alt="Mapa completo de Santa Catarina com destaque para São Bento do Sul no nordeste do estado"
       />
-      <div className="map-label map-label-south">
-        <strong>REGIÃO SUL</strong>
-        <small>Brasil</small>
-      </div>
-      <div className="map-label map-label-state">
-        <strong>SANTA CATARINA</strong>
-        <small>Planalto Norte</small>
-      </div>
       <div className="map-label map-label-city">
         <strong>SÃO BENTO DO SUL</strong>
-        <small>26°15′S · 49°23′O</small>
+        <small>Planalto Norte · divisa com o Paraná</small>
       </div>
+      <span className="state-map-pin" aria-hidden="true">●</span>
     </div>
   );
 }
@@ -196,9 +198,13 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         <div className="eyebrow">LOCALIZAÇÃO & TERRITÓRIO</div>
         <h2>Do Sul do Brasil<br />ao município.</h2>
         <LocationArt />
-        <div className="municipal-map">
-          <img src="/mapa-municipal-ibge.png" alt="Mapa oficial do município de São Bento do Sul produzido pelo IBGE" />
-          <div><b>MAPA MUNICIPAL</b><span>Limites, vias e área urbana · IBGE</span></div>
+        <div className="nearby-cities" aria-label="Cidades importantes próximas">
+          <b>NO ENTORNO</b>
+          <span>Rio Negrinho · 15 km</span>
+          <span>Campo Alegre · 25 km</span>
+          <span>Joinville · 80 km</span>
+          <span>Jaraguá do Sul · 85 km</span>
+          <span>Curitiba · 139 km</span>
         </div>
         <p className="location-copy">Planalto Norte de Santa Catarina · acesso pela BR-280 e SC-418 · altitude aproximada de 838 m.</p>
         <PanelTrigger detail="mapas" open={open} />
@@ -209,16 +215,16 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         <h2>História, natureza<br />e hospitalidade.</h2>
         <div className="photo-grid">
           <figure className="photo-main">
-            <img src="/foto-cidade-04.jpg" alt="Igreja Matriz Puríssimo Coração de Maria" />
+            <img src="/acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
             <figcaption>Igreja Matriz</figcaption>
           </figure>
           <figure>
-            <img src="/foto-cidade-01.jpg" alt="Praça Jardim dos Imigrantes" />
-            <figcaption>Jardim dos Imigrantes</figcaption>
+            <img src="/acervo-maria-fumaca.jpg" alt="Maria Fumaça em meio à Mata Atlântica" />
+            <figcaption>Maria Fumaça</figcaption>
           </figure>
           <figure>
-            <img src="/foto-cidade-06.jpg" alt="Paisagem rural e natural de São Bento do Sul" />
-            <figcaption>Natureza & turismo rural</figcaption>
+            <img src="/acervo-schlachtfest.jpg" alt="Desfile tradicional da Schlachtfest" />
+            <figcaption>Schlachtfest</figcaption>
           </figure>
         </div>
         <ul className="tourism-list">
@@ -273,7 +279,7 @@ export default function Home() {
         }}>
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
             <button className="modal-close" onClick={() => setActiveDetail(null)} aria-label="Fechar informações">×</button>
-            <div className="detail-visual">
+            <div className={`detail-visual ${activeDetail === "mapas" ? "map-mode" : ""}`}>
               {details[activeDetail].image && <img src={details[activeDetail].image} alt={details[activeDetail].imageAlt || ""} />}
               <span>{details[activeDetail].kicker}</span>
             </div>
@@ -289,6 +295,13 @@ export default function Home() {
               <div className="detail-text">
                 {details[activeDetail].paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
+              {details[activeDetail].gallery && (
+                <div className="detail-gallery">
+                  {details[activeDetail].gallery?.map(([src, alt, caption]) => (
+                    <figure key={src}><img src={src} alt={alt} /><figcaption>{caption}</figcaption></figure>
+                  ))}
+                </div>
+              )}
               <div className="detail-links">
                 {details[activeDetail].links.map(([label, href]) => (
                   <a key={href} href={href} target="_blank" rel="noreferrer">{label} ↗</a>
