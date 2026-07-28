@@ -38,7 +38,13 @@ const details: Record<DetailKey, {
     intro: "A madeira sempre foi importante para a economia da cidade. Com o tempo, São Bento do Sul ficou conhecida no Brasil e em outros países pela fabricação de móveis.",
     image: "/foto-cidade-05.jpg",
     imageAlt: "Arquitetura e paisagem de São Bento do Sul",
-    facts: [["Móveis", "setor de referência"], ["Metalurgia", "cadeia industrial"], ["Cerâmica", "produção diversificada"], ["Têxtil", "fiação e confecção"]],
+    facts: [
+      ["Móveis", "Rudnick e Artefama", "A Rudnick e a Artefama são exemplos de fábricas de móveis de São Bento do Sul. Elas transformam madeira e outros materiais em mesas, cadeiras, armários e móveis para casas e empresas."],
+      ["Metalurgia", "ArcelorMittal Tuper", "A ArcelorMittal Tuper é um exemplo do setor metalúrgico. Ela fabrica tubos, peças e sistemas de aço usados em carros, construções, máquinas e outras atividades."],
+      ["Cerâmica", "Oxford Porcelanas", "A Oxford é um exemplo do setor cerâmico. Ela fabrica pratos, xícaras, canecas e outros objetos usados para servir alimentos."],
+      ["Têxtil", "Buddemeyer", "A Buddemeyer é um exemplo do setor têxtil. Ela fabrica produtos de tecido para a casa, como toalhas, roupas de cama e itens para banho."],
+      ["Higiene", "Condor", "A Condor é um exemplo da indústria de higiene e limpeza. Ela produz escovas, vassouras, pincéis e outros objetos usados no dia a dia."],
+    ],
     paragraphs: ["No começo, serrarias e pequenas oficinas usavam madeiras como imbuía, pinheiro e canela. Depois, as fábricas cresceram, passaram a usar novas tecnologias e começaram a vender móveis para vários países.", "Hoje, a cidade também produz plásticos, peças de metal, cerâmica, tecidos e outros produtos. O comércio e os serviços também ajudam a movimentar a economia."],
     links: [["Ver o Plano Municipal de Turismo", "https://turismoemsaobento.sc.gov.br/assets/plano_municipal_de_turismo.pdf"]],
   },
@@ -165,6 +171,15 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
         <div className="sectors">
           <span>MÓVEIS</span><span>METALURGIA</span><span>CERÂMICA</span>
           <span>PLÁSTICOS</span><span>FIAÇÃO & TÊXTIL</span><span>SERVIÇOS</span>
+        </div>
+        <div className="economy-examples">
+          <b>EMPRESAS QUE AJUDAM A MOVER A CIDADE</b>
+          <p><strong>Móveis:</strong> Rudnick e Artefama</p>
+          <p><strong>Metal:</strong> ArcelorMittal Tuper</p>
+          <p><strong>Cerâmica:</strong> Oxford Porcelanas</p>
+          <p><strong>Têxtil:</strong> Buddemeyer</p>
+          <p><strong>Higiene e limpeza:</strong> Condor</p>
+          <small>São exemplos conhecidos; a cidade também possui muitas empresas menores.</small>
         </div>
         <div className="economy-note">
           <b>VOCÊ SABIA?</b>
@@ -317,7 +332,7 @@ export default function Home() {
         }}>
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
             <button className="modal-close" onClick={closeDetail} aria-label="Fechar informações">×</button>
-            <div className={`detail-visual ${activeDetail === "mapas" ? "map-mode" : ""}`}>
+            <div className={`detail-visual ${activeDetail === "mapas" ? "map-mode" : ""} ${activeDetail === "economia" ? "economy-mode" : ""}`}>
               {details[activeDetail].image && <img src={details[activeDetail].image} alt={details[activeDetail].imageAlt || ""} />}
               <span>{details[activeDetail].kicker}</span>
             </div>
