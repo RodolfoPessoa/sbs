@@ -19,7 +19,7 @@ const details: Record<DetailKey, {
     kicker: "CONHEÇA A CIDADE",
     title: "São Bento do Sul em números",
     intro: "Estes números ajudam a entender o tamanho da cidade, quantas pessoas moram nela e como é a vida por lá.",
-    image: "/bandeira-sao-bento-do-sul.png",
+    image: "bandeira-sao-bento-do-sul.png",
     imageAlt: "Bandeira de São Bento do Sul",
     facts: [
       ["87.661", "habitantes estimados em 2025"],
@@ -36,7 +36,7 @@ const details: Record<DetailKey, {
     kicker: "TRABALHO E PRODUÇÃO",
     title: "Da madeira a muitos tipos de indústria",
     intro: "A madeira sempre foi importante para a economia da cidade. Com o tempo, São Bento do Sul ficou conhecida no Brasil e em outros países pela fabricação de móveis.",
-    image: "/foto-cidade-05.jpg",
+    image: "foto-cidade-05.jpg",
     imageAlt: "Arquitetura e paisagem de São Bento do Sul",
     facts: [
       ["Móveis", "Rudnick e Artefama", "A Rudnick e a Artefama são exemplos de fábricas de móveis de São Bento do Sul. Elas transformam madeira e outros materiais em mesas, cadeiras, armários e móveis para casas e empresas."],
@@ -52,7 +52,7 @@ const details: Record<DetailKey, {
     kicker: "CONHEÇA SÃO BENTO",
     title: "Uma cidade de histórias e natureza",
     intro: "A cidade reúne construções antigas, festas, música, trabalho e belas paisagens de serra.",
-    image: "/acervo-catedral-centro.jpg",
+    image: "acervo-catedral-centro.jpg",
     imageAlt: "Vista do centro e da Igreja Matriz de São Bento do Sul",
     facts: [["70 pioneiros", "homenageados no Monumento ao Imigrante"], ["22 mil m²", "tamanho do Parque 23 de Setembro"], ["1913", "ano de abertura da estação de trem"], ["112 anos", "da Banda Treml em 2026"]],
     paragraphs: ["Povos de diferentes origens ajudaram a formar São Bento do Sul. Essa mistura pode ser percebida nas casas, na música, nas festas, na comida e no jeito de trabalhar.", "Você sabia? A Estrada Dona Francisca é uma das estradas antigas mais importantes do Brasil. A Casa Eichendorf foi construída no final dos anos 1800. A antiga estação de trem hoje abriga o Museu da Música."],
@@ -62,7 +62,7 @@ const details: Record<DetailKey, {
     kicker: "LINHA DO TEMPO",
     title: "Como São Bento do Sul começou",
     intro: "A história da cidade envolve os povos indígenas que já viviam na região, a chegada de famílias europeias e a construção de caminhos entre a serra e o litoral.",
-    image: "/acervo-casa-eichendorf.jpg",
+    image: "acervo-casa-eichendorf.jpg",
     imageAlt: "Edificação histórica de São Bento do Sul",
     facts: [["1858", "abertura da Estrada Dona Francisca"], ["1873", "chegada das primeiras famílias europeias"], ["1876", "o lugar recebe o nome São Bento"], ["1883", "criação do município"], ["1884", "início da administração municipal"], ["1893", "cidade abriga o governo de Santa Catarina por um tempo"]],
     paragraphs: ["Os indígenas Xokleng já viviam na região. A partir de 1873, chegaram famílias alemãs, austríacas, polonesas e tchecas, trazidas por uma empresa de colonização chamada Sociedade Colonizadora de Hamburgo.", "Em 1876, Alfredo Taunay visitou a colônia, e o lugar recebeu o nome de São Bento. Hoje, museus, casas antigas e monumentos ajudam a contar essa história."],
@@ -72,28 +72,28 @@ const details: Record<DetailKey, {
     kicker: "VEJA ONDE FICA",
     title: "Do Sul do Brasil às ruas da cidade",
     intro: "Os mapas mostram onde São Bento do Sul fica e quais cidades estão mais próximas.",
-    image: "/mapa-santa-catarina-ibge.jpg",
+    image: "mapa-santa-catarina-ibge.jpg",
     imageAlt: "Mapa completo do estado de Santa Catarina produzido pelo IBGE",
     facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
     paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná.", "Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba também são importantes para viagens, compras, serviços e passeios."],
-    links: [["Ver o mapa de Santa Catarina", "/mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "/mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
+    links: [["Ver o mapa de Santa Catarina", "mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
   },
   turismo: {
     kicker: "PASSEIOS E LUGARES",
     title: "O que conhecer em São Bento do Sul",
     intro: "Na cidade, é possível visitar museus, conhecer lugares antigos, andar de bicicleta, aproveitar a natureza, experimentar comidas e participar de festas.",
-    image: "/acervo-maria-fumaca.jpg",
+    image: "acervo-maria-fumaca.jpg",
     imageAlt: "Maria Fumaça em meio à Mata Atlântica",
     facts: [["Museu Dr. Felippe Maria Wolff", "conta a história da cidade"], ["Museu da Música", "mostra a história da música local"], ["Estrada Dona Francisca", "estrada antiga cercada por paisagens"], ["Schlachtfest", "uma das maiores festas da cidade"], ["Rio Vermelho", "região rural com cultura e natureza"], ["Parque das Aves", "lugar para conhecer e aprender sobre aves"]],
     paragraphs: ["São Bento do Sul oferece passeios para quem gosta de história, natureza, compras, comida, festas e aventuras ao ar livre.", "A Schlachtfest tem música, dança e comidas de origem alemã. A estação de trem foi aberta em 1913 e hoje abriga o Museu da Música."],
     links: [["Ver todos os atrativos", "https://www.turismoemsaobento.sc.gov.br/"], ["Buscar vídeos sobre o destino", "https://www.youtube.com/results?search_query=turismo+São+Bento+do+Sul+SC"]],
     gallery: [
-      ["/acervo-catedral-centro.jpg", "Centro de São Bento do Sul e Igreja Matriz", "Centro & Matriz"],
-      ["/acervo-casa-eichendorf.jpg", "Casa Eichendorf", "Casa Eichendorf"],
-      ["/acervo-museu.jpg", "Museu Municipal Dr. Felippe Maria Wolff", "Museu Municipal"],
-      ["/acervo-rio-vermelho.jpg", "Igreja de Rio Vermelho Povoado", "Rio Vermelho"],
-      ["/acervo-schlachtfest.jpg", "Desfile da Schlachtfest", "Schlachtfest"],
-      ["/acervo-parque-das-aves.jpg", "Aves em área de visitação", "Parque das Aves"],
+      ["acervo-catedral-centro.jpg", "Centro de São Bento do Sul e Igreja Matriz", "Centro & Matriz"],
+      ["acervo-casa-eichendorf.jpg", "Casa Eichendorf", "Casa Eichendorf"],
+      ["acervo-museu.jpg", "Museu Municipal Dr. Felippe Maria Wolff", "Museu Municipal"],
+      ["acervo-rio-vermelho.jpg", "Igreja de Rio Vermelho Povoado", "Rio Vermelho"],
+      ["acervo-schlachtfest.jpg", "Desfile da Schlachtfest", "Schlachtfest"],
+      ["acervo-parque-das-aves.jpg", "Aves em área de visitação", "Parque das Aves"],
     ],
   },
 };
@@ -110,7 +110,7 @@ function LocationArt() {
   return (
     <div className="location-art" aria-label="Localização: Brasil, Santa Catarina, São Bento do Sul">
       <img
-        src="/mapa-santa-catarina-ibge.jpg"
+        src="mapa-santa-catarina-ibge.jpg"
         alt="Mapa completo de Santa Catarina com destaque para São Bento do Sul no nordeste do estado"
       />
       <div className="map-label map-label-city">
@@ -128,7 +128,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
       <article className="panel flap">
         <div className="eyebrow">SÍMBOLO MUNICIPAL</div>
         <div className="flag-frame">
-          <img src="/bandeira-sao-bento-do-sul.png" alt="Bandeira oficial de São Bento do Sul" />
+          <img src="bandeira-sao-bento-do-sul.png" alt="Bandeira oficial de São Bento do Sul" />
         </div>
         <h2>São Bento<br />do Sul.</h2>
         <p className="lead">Tradição, trabalho e natureza no Planalto Norte de Santa Catarina.</p>
@@ -195,7 +195,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
       </article>
 
       <article className="panel cover">
-        <div className="cover-photo" aria-hidden="true" />
+        <div className="cover-photo" aria-hidden="true" style={{ backgroundImage: 'url("acervo-catedral-centro.jpg")' }} />
         <div className="cover-shade" aria-hidden="true" />
         <div className="cover-top">
           <span className="state-tag">SANTA CATARINA</span>
@@ -227,7 +227,7 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         <div className="eyebrow">NOSSA HISTÓRIA</div>
         <h2>Como a cidade<br />começou.</h2>
         <div className="history-photo">
-          <img src="/foto-cidade-05.jpg" alt="Arquitetura histórica de São Bento do Sul" />
+          <img src="foto-cidade-05.jpg" alt="Arquitetura histórica de São Bento do Sul" />
           <span>Uma história preservada</span>
         </div>
         <p>Os indígenas Xokleng já viviam nesta região. Em 1873, começaram a chegar famílias alemãs, austríacas, polonesas e tchecas.</p>
@@ -261,15 +261,15 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         <h2>História, natureza<br />e bons passeios.</h2>
         <div className="photo-grid">
           <figure className="photo-main">
-            <img src="/acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
+            <img src="acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
             <figcaption>Igreja Matriz</figcaption>
           </figure>
           <figure>
-            <img src="/acervo-maria-fumaca.jpg" alt="Maria Fumaça em meio à Mata Atlântica" />
+            <img src="acervo-maria-fumaca.jpg" alt="Maria Fumaça em meio à Mata Atlântica" />
             <figcaption>Maria Fumaça</figcaption>
           </figure>
           <figure>
-            <img src="/acervo-schlachtfest.jpg" alt="Desfile tradicional da Schlachtfest" />
+            <img src="acervo-schlachtfest.jpg" alt="Desfile tradicional da Schlachtfest" />
             <figcaption>Schlachtfest</figcaption>
           </figure>
         </div>
