@@ -74,11 +74,17 @@ button, a { font: inherit; }
 .economy-note { margin-top: auto; background: var(--forest); color: #fff; padding: 9px 10px; }
 .economy-note b { color: var(--gold); font-size: clamp(7px, .6vw, 9px); letter-spacing: .1em; }
 .economy-note p { margin-top: 4px; font-size: clamp(8px, .65vw, 10px); line-height: 1.4; }
-.contact-block { display: flex; gap: 14px; align-items: center; padding-top: 20px; border-top: 1px solid #bdc6bd; }
-.contact-block > div:last-child { display: grid; gap: 5px; }
+.contact-block { display: flex; gap: 12px; align-items: center; padding-top: 10px; border-top: 1px solid #bdc6bd; }
+.contact-block > div { display: grid; gap: 4px; }
 .contact-block strong { font-size: clamp(8px, .75vw, 11px); letter-spacing: .15em; }
 .contact-block a { color: var(--coral); font-size: clamp(8px, .8vw, 12px); }
 .contact-block small { font-size: clamp(8px, .68vw, 10px); color: #5d6c64; }
+.qr-access { grid-template-columns: 68px 1fr; align-items: center; min-width: 62%; padding: 5px; background: var(--cream); border-left: 3px solid var(--gold); }
+.qr-access img { width: 68px; height: 68px; display: block; background: #fff; }
+.qr-access > div { display: grid; gap: 3px; }
+.qr-access strong { color: var(--forest); }
+.qr-access small { overflow-wrap: anywhere; line-height: 1.15; }
+.source-list { flex: 1; }
 .qr-placeholder { width: 62px; min-width: 62px; aspect-ratio: 1; background: repeating-linear-gradient(45deg, var(--ink) 0 3px, #fff 3px 6px); padding: 6px; display: grid; place-items: center; }
 .qr-placeholder span { background: #fff; padding: 5px 3px; text-align: center; font-size: 7px; font-weight: 800; line-height: 1.1; }
 .source-note { font-size: clamp(6px, .62vw, 9px) !important; color: #7f8983; }

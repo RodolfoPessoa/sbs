@@ -186,7 +186,14 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
           <p>São Bento do Sul é conhecida no Brasil pela produção de móveis. A cidade também possui fábricas de vários outros produtos.</p>
         </div>
         <div className="contact-block">
-          <div>
+          <div className="qr-access">
+            <img src="qrcode-folder.png" alt="QR Code para abrir o infográfico de São Bento do Sul" />
+            <div>
+              <strong>CONTINUE NO SITE</strong>
+              <small>rodolfopessoa.github.io/sbs</small>
+            </div>
+          </div>
+          <div className="source-list">
             <strong>FONTES</strong>
             <small>IBGE · Plano Municipal de Turismo · Prefeitura Municipal</small>
           </div>
