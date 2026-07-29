@@ -195,20 +195,25 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
       </article>
 
       <article className="panel cover">
+        <div className="cover-photo" aria-hidden="true" />
+        <div className="cover-shade" aria-hidden="true" />
         <div className="cover-top">
           <span className="state-tag">SANTA CATARINA</span>
-          <span className="edition">GUIA ESSENCIAL</span>
+          <span className="edition">PLANALTO NORTE</span>
         </div>
-        <div className="sun" aria-hidden="true" />
+        <div className="cover-landmark">
+          <span>IGREJA MATRIZ</span>
+          <b>Puríssimo Coração de Maria</b>
+        </div>
         <div className="cover-title">
-          <p>UM CONVITE PARA</p>
+          <p>DESCUBRA UMA CIDADE DE</p>
           <h1>SÃO BENTO<br /><em>DO SUL</em></h1>
-          <div className="title-rule"><span>26°15′S</span><span>49°23′O</span></div>
+          <div className="title-rule"><span>HISTÓRIA</span><span>CULTURA</span><span>NATUREZA</span></div>
         </div>
-        <div className="mountains" aria-hidden="true">
-          <i /><i /><i /><i /><i />
+        <div className="cover-footer">
+          <span>26°15′S · 49°23′O</span>
+          <b>GUIA ESSENCIAL</b>
         </div>
-        <p className="cover-caption">CULTURA · NATUREZA · ACOLHIMENTO</p>
         <PanelTrigger detail="cidade" open={open} />
       </article>
     </section>
