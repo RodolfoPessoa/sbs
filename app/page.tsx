@@ -16,25 +16,25 @@ const details: Record<DetailKey, {
   gallery?: [string, string, string][];
 }> = {
   dados: {
-    kicker: "RETRATO DO MUNICÍPIO",
+    kicker: "CONHEÇA A CIDADE",
     title: "São Bento do Sul em números",
-    intro: "Um panorama rápido para compreender o território, a população e a qualidade de vida.",
+    intro: "Estes números ajudam a entender o tamanho da cidade, quantas pessoas moram nela e como é a vida por lá.",
     image: "/bandeira-sao-bento-do-sul.png",
     imageAlt: "Bandeira de São Bento do Sul",
     facts: [
       ["87.661", "habitantes estimados em 2025"],
-      ["495 km²", "área territorial"],
-      ["838 m", "altitude aproximada"],
+      ["495 km²", "tamanho do município"],
+      ["838 m", "altura em relação ao mar"],
       ["0,782", "IDHM", "É uma nota que ajuda a entender como é viver em uma cidade. Ela observa três coisas: se as pessoas vivem bastante, se estudam e se têm renda. Quanto mais perto de 1, melhores costumam ser essas condições."],
       ["R$ 60.499", "PIB per capita em 2023", "Primeiro somamos o valor de tudo o que a cidade produz em um ano. Depois dividimos esse total pelo número de moradores. O resultado é uma média para comparar cidades — não quer dizer que cada pessoa recebe esse dinheiro."],
       ["4215802", "código IBGE", "É como o número de identificação da cidade. O IBGE usa esse código para não confundir municípios com nomes parecidos e para organizar mapas, censos e pesquisas."],
     ],
-    paragraphs: ["O município está no Planalto Norte catarinense, próximo à divisa com o Paraná. Sua localização favorece conexões com Curitiba, Joinville, o litoral e outros centros do Sul do país."],
-    links: [["Consultar dados no IBGE", "https://www.ibge.gov.br/cidades-e-estados/sc/sao-bento-do-sul.html"]],
+    paragraphs: ["São Bento do Sul fica no Planalto Norte de Santa Catarina, perto da divisa com o Paraná. De lá, é possível chegar com facilidade a cidades como Curitiba e Joinville e também ao litoral."],
+    links: [["Ver os dados no IBGE", "https://www.ibge.gov.br/cidades-e-estados/sc/sao-bento-do-sul.html"]],
   },
   economia: {
-    kicker: "VOCAÇÃO PRODUTIVA",
-    title: "Da madeira à indústria diversificada",
+    kicker: "TRABALHO E PRODUÇÃO",
+    title: "Da madeira a muitos tipos de indústria",
     intro: "A madeira sempre foi importante para a economia da cidade. Com o tempo, São Bento do Sul ficou conhecida no Brasil e em outros países pela fabricação de móveis.",
     image: "/foto-cidade-05.jpg",
     imageAlt: "Arquitetura e paisagem de São Bento do Sul",
@@ -50,42 +50,42 @@ const details: Record<DetailKey, {
   },
   cidade: {
     kicker: "CONHEÇA SÃO BENTO",
-    title: "Uma cidade entre tradição e natureza",
-    intro: "Patrimônio, trabalho, cultura e paisagens de serra formam uma identidade singular no Planalto Norte.",
+    title: "Uma cidade de histórias e natureza",
+    intro: "A cidade reúne construções antigas, festas, música, trabalho e belas paisagens de serra.",
     image: "/acervo-catedral-centro.jpg",
     imageAlt: "Vista do centro e da Igreja Matriz de São Bento do Sul",
-    facts: [["70 pioneiros", "lembrados no Monumento ao Imigrante"], ["22 mil m²", "Parque 23 de Setembro"], ["1913", "inauguração da estação ferroviária"], ["112 anos", "de história da Banda Treml em 2026"]],
-    paragraphs: ["A herança de diferentes povos aparece na arquitetura, na música, nas festas, na gastronomia e nos modos de produzir. O contato com araucárias, rios e áreas rurais completa a experiência da cidade.", "Curiosidades: a Estrada Imperial Dona Francisca é apontada pelo Plano Municipal de Turismo como a segunda estrada carroçável do Brasil; a Casa Eichendorf foi construída no final do século XIX; e a antiga estação ferroviária hoje abriga o Museu da Música."],
+    facts: [["70 pioneiros", "homenageados no Monumento ao Imigrante"], ["22 mil m²", "tamanho do Parque 23 de Setembro"], ["1913", "ano de abertura da estação de trem"], ["112 anos", "da Banda Treml em 2026"]],
+    paragraphs: ["Povos de diferentes origens ajudaram a formar São Bento do Sul. Essa mistura pode ser percebida nas casas, na música, nas festas, na comida e no jeito de trabalhar.", "Você sabia? A Estrada Dona Francisca é uma das estradas antigas mais importantes do Brasil. A Casa Eichendorf foi construída no final dos anos 1800. A antiga estação de trem hoje abriga o Museu da Música."],
     links: [["Portal oficial de turismo", "https://www.turismoemsaobento.sc.gov.br/"]],
   },
   historia: {
     kicker: "LINHA DO TEMPO",
-    title: "Da Colônia Dona Francisca ao município",
-    intro: "A formação de São Bento do Sul reúne presença indígena, colonização europeia e a abertura de caminhos entre o planalto e o litoral.",
+    title: "Como São Bento do Sul começou",
+    intro: "A história da cidade envolve os povos indígenas que já viviam na região, a chegada de famílias europeias e a construção de caminhos entre a serra e o litoral.",
     image: "/acervo-casa-eichendorf.jpg",
     imageAlt: "Edificação histórica de São Bento do Sul",
-    facts: [["1858", "abertura da Estrada Dona Francisca"], ["1873", "chegada dos pioneiros"], ["1876", "nome São Bento"], ["1883", "criação do município"], ["1884", "instalação oficial"], ["1893", "sede temporária do governo estadual"]],
-    paragraphs: ["A região era habitada por indígenas Xokleng. A partir de 1873, famílias alemãs, austríacas, polonesas e tchecas chegaram por meio da Sociedade Colonizadora de Hamburgo.", "Em 1876, Alfredo Taunay visitou a colônia e o núcleo recebeu o nome de São Bento. A memória desse percurso está preservada em museus, edificações e monumentos."],
+    facts: [["1858", "abertura da Estrada Dona Francisca"], ["1873", "chegada das primeiras famílias europeias"], ["1876", "o lugar recebe o nome São Bento"], ["1883", "criação do município"], ["1884", "início da administração municipal"], ["1893", "cidade abriga o governo de Santa Catarina por um tempo"]],
+    paragraphs: ["Os indígenas Xokleng já viviam na região. A partir de 1873, chegaram famílias alemãs, austríacas, polonesas e tchecas, trazidas por uma empresa de colonização chamada Sociedade Colonizadora de Hamburgo.", "Em 1876, Alfredo Taunay visitou a colônia, e o lugar recebeu o nome de São Bento. Hoje, museus, casas antigas e monumentos ajudam a contar essa história."],
     links: [["História no portal de turismo", "https://turismoemsaobento.sc.gov.br/ver?conteudo=saobentodosul"]],
   },
   mapas: {
-    kicker: "EXPLORE O TERRITÓRIO",
+    kicker: "VEJA ONDE FICA",
     title: "Do Sul do Brasil às ruas da cidade",
-    intro: "Dois mapas ajudam a entender a posição estratégica e a forma do município.",
+    intro: "Os mapas mostram onde São Bento do Sul fica e quais cidades estão mais próximas.",
     image: "/mapa-santa-catarina-ibge.jpg",
     imageAlt: "Mapa completo do estado de Santa Catarina produzido pelo IBGE",
     facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
-    paragraphs: ["O mapa mostra Santa Catarina por inteiro e destaca o nordeste do estado, onde São Bento do Sul se aproxima da divisa com o Paraná.", "No entorno imediato estão Rio Negrinho e Campo Alegre. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba são referências regionais importantes para acesso, serviços e turismo."],
-    links: [["Abrir mapa estadual do IBGE", "/mapa-santa-catarina-ibge.jpg"], ["Abrir mapa municipal do IBGE", "/mapa-municipal-ibge.png"], ["Geoprocessamento municipal", "https://geo.saobentodosul.sc.gov.br/"]],
+    paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná.", "Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba também são importantes para viagens, compras, serviços e passeios."],
+    links: [["Ver o mapa de Santa Catarina", "/mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "/mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
   },
   turismo: {
-    kicker: "ROTEIROS & EXPERIÊNCIAS",
+    kicker: "PASSEIOS E LUGARES",
     title: "O que conhecer em São Bento do Sul",
-    intro: "A cidade combina patrimônio histórico, natureza, cicloturismo, compras, gastronomia, eventos e turismo rural.",
+    intro: "Na cidade, é possível visitar museus, conhecer lugares antigos, andar de bicicleta, aproveitar a natureza, experimentar comidas e participar de festas.",
     image: "/acervo-maria-fumaca.jpg",
     imageAlt: "Maria Fumaça em meio à Mata Atlântica",
-    facts: [["Museu Dr. Felippe Maria Wolff", "história local"], ["Museu da Música", "memória musical"], ["Estrada Dona Francisca", "paisagem e patrimônio"], ["Schlachtfest", "maior festa da cidade"], ["Rio Vermelho", "cultura e paisagem rural"], ["Parque das Aves", "fauna e educação ambiental"]],
-    paragraphs: ["O Plano Municipal de Turismo identifica como forças da cidade o turismo de experiência, cultural, de natureza, negócios, compras, gastronomia e história.", "A Schlachtfest reúne música, dança e gastronomia germânica. A estação ferroviária, inaugurada em 1913, preserva a memória do trem e hoje abriga o Museu da Música."],
+    facts: [["Museu Dr. Felippe Maria Wolff", "conta a história da cidade"], ["Museu da Música", "mostra a história da música local"], ["Estrada Dona Francisca", "estrada antiga cercada por paisagens"], ["Schlachtfest", "uma das maiores festas da cidade"], ["Rio Vermelho", "região rural com cultura e natureza"], ["Parque das Aves", "lugar para conhecer e aprender sobre aves"]],
+    paragraphs: ["São Bento do Sul oferece passeios para quem gosta de história, natureza, compras, comida, festas e aventuras ao ar livre.", "A Schlachtfest tem música, dança e comidas de origem alemã. A estação de trem foi aberta em 1913 e hoje abriga o Museu da Música."],
     links: [["Ver todos os atrativos", "https://www.turismoemsaobento.sc.gov.br/"], ["Buscar vídeos sobre o destino", "https://www.youtube.com/results?search_query=turismo+São+Bento+do+Sul+SC"]],
     gallery: [
       ["/acervo-catedral-centro.jpg", "Centro de São Bento do Sul e Igreja Matriz", "Centro & Matriz"],
@@ -147,7 +147,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
         </div>
         <div className="flap-data">
           <div><strong>87.661</strong><span>habitantes<br />estimados</span></div>
-          <div><strong>495 km²</strong><span>de área<br />territorial</span></div>
+          <div><strong>495 km²</strong><span>de tamanho<br />do município</span></div>
           <div><strong>1873</strong><span>ano de<br />fundação</span></div>
         </div>
         <div className="print-glossary">
@@ -183,7 +183,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
         </div>
         <div className="economy-note">
           <b>VOCÊ SABIA?</b>
-          <p>São Bento do Sul consolidou-se como referência brasileira na produção de móveis, mantendo uma economia industrial diversificada.</p>
+          <p>São Bento do Sul é conhecida no Brasil pela produção de móveis. A cidade também possui fábricas de vários outros produtos.</p>
         </div>
         <div className="contact-block">
           <div>
@@ -212,7 +212,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
         </div>
         <div className="cover-footer">
           <span>26°15′S · 49°23′O</span>
-          <b>GUIA ESSENCIAL</b>
+          <b>GUIA DA CIDADE</b>
         </div>
         <PanelTrigger detail="cidade" open={open} />
       </article>
@@ -225,24 +225,24 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
     <section className="sheet back" aria-label="Verso do folder">
       <article className="panel intro">
         <div className="eyebrow">NOSSA HISTÓRIA</div>
-        <h2>Da Colônia Dona<br />Francisca à cidade.</h2>
+        <h2>Como a cidade<br />começou.</h2>
         <div className="history-photo">
           <img src="/foto-cidade-05.jpg" alt="Arquitetura histórica de São Bento do Sul" />
-          <span>Patrimônio e memória</span>
+          <span>Uma história preservada</span>
         </div>
-        <p>A colonização europeia começou em 1873, com famílias alemãs, austríacas, polonesas e tchecas. A região era habitada por indígenas Xokleng e integrava a Colônia Dona Francisca.</p>
+        <p>Os indígenas Xokleng já viviam nesta região. Em 1873, começaram a chegar famílias alemãs, austríacas, polonesas e tchecas.</p>
         <div className="timeline">
-          <div><b>1873</b><span>Chegada dos primeiros colonos</span></div>
-          <div><b>1876</b><span>O núcleo recebe o nome de São Bento</span></div>
-          <div><b>1883</b><span>Elevação à categoria de vila</span></div>
-          <div><b>1884</b><span>Instalação oficial do município</span></div>
+          <div><b>1873</b><span>Chegada das primeiras famílias europeias</span></div>
+          <div><b>1876</b><span>O lugar recebe o nome de São Bento</span></div>
+          <div><b>1883</b><span>São Bento passa a ser um município</span></div>
+          <div><b>1884</b><span>Começa a administração da cidade</span></div>
         </div>
         <PanelTrigger detail="historia" open={open} />
       </article>
 
       <article className="panel location">
-        <div className="eyebrow">LOCALIZAÇÃO & TERRITÓRIO</div>
-        <h2>Do Sul do Brasil<br />ao município.</h2>
+        <div className="eyebrow">ONDE FICA</div>
+        <h2>Do Sul do Brasil<br />até a cidade.</h2>
         <LocationArt />
         <div className="nearby-cities" aria-label="Cidades importantes próximas">
           <b>NO ENTORNO</b>
@@ -252,13 +252,13 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
           <span>Jaraguá do Sul · 85 km</span>
           <span>Curitiba · 139 km</span>
         </div>
-        <p className="location-copy">Planalto Norte de Santa Catarina · acesso pela BR-280 e SC-418 · altitude aproximada de 838 m.</p>
+        <p className="location-copy">A cidade fica no Planalto Norte de Santa Catarina. As principais estradas de acesso são a BR-280 e a SC-418. Sua altitude é de cerca de 838 m.</p>
         <PanelTrigger detail="mapas" open={open} />
       </article>
 
       <article className="panel curiosities">
-        <div className="eyebrow">TURISMO & EXPERIÊNCIAS</div>
-        <h2>História, natureza<br />e hospitalidade.</h2>
+        <div className="eyebrow">PASSEIOS E TURISMO</div>
+        <h2>História, natureza<br />e bons passeios.</h2>
         <div className="photo-grid">
           <figure className="photo-main">
             <img src="/acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
@@ -279,7 +279,7 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
           <li>Estrada Dona Francisca e Casa Eichendorf</li>
           <li>Circuito das Araucárias de Cicloturismo</li>
         </ul>
-        <div className="tourism-fact"><b>1893</b><span>Durante a Revolução Federalista, São Bento sediou temporariamente o governo de Santa Catarina.</span></div>
+        <div className="tourism-fact"><b>1893</b><span>Por um curto período, São Bento do Sul foi a cidade onde funcionou o governo de Santa Catarina.</span></div>
         <PanelTrigger detail="turismo" open={open} />
       </article>
     </section>
