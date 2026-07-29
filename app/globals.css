@@ -86,18 +86,19 @@ button, a { font: inherit; }
 .cover-photo { position: absolute; z-index: -3; inset: 0; background: url("/acervo-catedral-centro.jpg") center center / cover no-repeat; transform: scale(1.015); }
 .cover-shade { position: absolute; z-index: -2; inset: 0; background: linear-gradient(180deg, #10251b20 0%, #10251b12 31%, #17382abf 56%, #102b22f5 100%); }
 .cover-shade::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #102b2266 0%, transparent 42%, #102b2238 100%); }
-.cover-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; font-size: clamp(7px, .63vw, 9.5px); letter-spacing: .15em; }
-.state-tag { border: 1px solid #ffffffb8; padding: 6px 8px; background: #17382a66; backdrop-filter: blur(3px); }
-.edition { color: #fff; font-weight: 800; text-shadow: 0 2px 8px #0009; }
-.cover-landmark { position: absolute; z-index: 1; top: 41%; right: 7%; display: grid; justify-items: end; padding: 6px 8px; border-right: 3px solid var(--gold); color: #fff; text-align: right; text-shadow: 0 2px 8px #000b; }
-.cover-landmark span { font-size: clamp(6px, .55vw, 8px); font-weight: 800; letter-spacing: .15em; }
-.cover-landmark b { margin-top: 2px; font: 400 clamp(8px, .75vw, 11px)/1.1 Georgia, serif; }
-.cover-title { margin-top: auto; margin-bottom: 16%; position: relative; z-index: 1; text-shadow: 0 3px 16px #000a; }
-.cover-title p { letter-spacing: .18em; font-size: clamp(7px, .64vw, 9.5px); font-weight: 800; }
+.cover-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; font-size: clamp(9px, .72vw, 11px); letter-spacing: .12em; }
+.state-tag { border: 1px solid #ffffffd9; padding: 7px 9px; background: #17382ad9; box-shadow: 0 5px 18px #0004; }
+.edition { padding: 7px 9px; background: #f2bd45; color: var(--deep); font-weight: 900; box-shadow: 0 5px 18px #0004; }
+.cover-landmark { position: absolute; z-index: 1; top: 40%; right: 0; display: grid; justify-items: end; min-width: 66%; padding: 10px 7% 10px 12px; border-left: 5px solid var(--gold); background: #fff8e9e8; color: var(--deep); text-align: right; box-shadow: 0 8px 25px #0004; }
+.cover-landmark span { font-size: clamp(8px, .68vw, 10px); font-weight: 900; letter-spacing: .12em; }
+.cover-landmark b { margin-top: 3px; font: 400 clamp(11px, .9vw, 14px)/1.1 Georgia, serif; }
+.cover-title { margin: auto -3% 13% -7%; padding: 7% 7% 6%; position: relative; z-index: 1; border-left: 6px solid var(--gold); background: #123b2fe8; box-shadow: 0 12px 35px #0005; text-shadow: 0 3px 16px #000a; }
+.cover-title p { letter-spacing: .15em; font-size: clamp(9px, .72vw, 11px); font-weight: 900; }
 .cover h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(37px, 4.15vw, 64px); line-height: .84; letter-spacing: -.055em; font-weight: 400; margin: 10px 0 18px; }
 .cover h1 em { color: #f2bd45; font-weight: 400; }
-.title-rule { border-top: 1px solid #ffffffa6; display: flex; justify-content: space-between; padding-top: 7px; font-size: clamp(6px, .58vw, 8.5px); font-weight: 800; letter-spacing: .13em; }
-.cover-footer { position: absolute; z-index: 2; right: 7%; bottom: 4.5%; left: 7%; display: flex; justify-content: space-between; align-items: center; padding-top: 7px; border-top: 1px solid #ffffff5c; font-size: clamp(6px, .58vw, 8.5px); letter-spacing: .12em; }
+.title-rule { display: flex; gap: 5px; justify-content: flex-start; padding-top: 1px; font-size: clamp(8px, .64vw, 9.5px); font-weight: 900; letter-spacing: .09em; }
+.title-rule span { padding: 5px 6px; border: 1px solid #ffffff8c; background: #ffffff14; }
+.cover-footer { position: absolute; z-index: 2; right: 7%; bottom: 4%; left: 7%; display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid #ffffff8c; font-size: clamp(8px, .65vw, 10px); font-weight: 700; letter-spacing: .1em; }
 .cover-footer b { color: #f2bd45; }
 .back .panel { background: var(--paper); border-right: 1px solid #d8d2c5; }
 .back .panel:last-child { border: 0; }
@@ -221,4 +222,14 @@ button, a { font: inherit; }
   .print-glossary p { font-size: 5.3pt; line-height: 1.15; }
   .print-glossary strong { color: var(--forest); }
   .flap .microcopy { display: none; }
+  .flap .lead, .economy > p { font-size: 8.2pt; line-height: 1.42; }
+  .flap-profile-title span, .economy-examples > b { font-size: 7pt; }
+  .flap-profile > p, .economy-examples p, .economy-note p { font-size: 7.2pt; line-height: 1.35; }
+  .flap-profile-grid span, .economy-examples small, .economy-number span { font-size: 6.5pt; }
+  .flap-profile-grid strong, .flap-data span, .sectors span { font-size: 7pt; }
+  .flap-data strong { font-size: 10pt; }
+  .cover-top, .cover-title p { font-size: 8pt; }
+  .cover-landmark span { font-size: 7.5pt; }
+  .cover-landmark b { font-size: 10pt; }
+  .title-rule, .cover-footer { font-size: 7pt; }
 }
