@@ -210,8 +210,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
           <b>Puríssimo Coração de Maria</b>
         </div>
         <div className="cover-title">
-          <p>DESCUBRA UMA CIDADE DE</p>
-          <h1>SÃO BENTO<br /><em>DO SUL</em></h1>
+          <h1>Descubra<br /><em>São Bento<br />do Sul</em></h1>
           <div className="title-rule"><span>HISTÓRIA</span><span>CULTURA</span><span>NATUREZA</span></div>
         </div>
         <div className="cover-footer">
