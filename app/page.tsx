@@ -182,19 +182,14 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
           <small>São exemplos conhecidos; a cidade também possui muitas empresas menores.</small>
         </div>
         <div className="economy-note">
-          <a href="https://rodolfopessoa.github.io/sbs/" target="_blank" rel="noreferrer" aria-label="Abrir o infográfico de São Bento do Sul">
+          <a className="qr-tile" href="https://rodolfopessoa.github.io/sbs/" target="_blank" rel="noreferrer" aria-label="Abrir o infográfico de São Bento do Sul">
             <img src="qrcode-folder.png" alt="QR Code para abrir o infográfico de São Bento do Sul" />
+            <span>ACESSE</span>
           </a>
           <div>
             <b>VOCÊ SABIA?</b>
             <p>São Bento do Sul é conhecida no Brasil pela produção de móveis. A cidade também possui fábricas de vários outros produtos.</p>
-            <a className="short-site-link" href="https://rodolfopessoa.github.io/sbs/" target="_blank" rel="noreferrer">rodolfopessoa.github.io/sbs</a>
-          </div>
-        </div>
-        <div className="contact-block">
-          <div className="source-list">
-            <strong>FONTES</strong>
-            <small>IBGE · Plano Municipal de Turismo · Prefeitura Municipal</small>
+            <small className="economy-sources"><strong>FONTES:</strong> IBGE · Plano Municipal de Turismo · Prefeitura Municipal</small>
           </div>
         </div>
         <PanelTrigger detail="economia" open={open} />
