@@ -70,10 +70,10 @@ const details: Record<DetailKey, {
   },
   mapas: {
     kicker: "VEJA ONDE FICA",
-    title: "Do Sul do Brasil às ruas da cidade",
-    intro: "Os mapas mostram onde São Bento do Sul fica e quais cidades estão mais próximas.",
-    image: "mapa-santa-catarina-ibge.jpg",
-    imageAlt: "Mapa completo do estado de Santa Catarina produzido pelo IBGE",
+    title: "São Bento do Sul no Planalto Norte",
+    intro: "O mapa aproxima a região para mostrar com clareza onde fica São Bento do Sul e quais cidades estão por perto.",
+    image: "mapa-sul-planalto-norte-v2.png",
+    imageAlt: "Arte de localização do Planalto Norte de Santa Catarina com São Bento do Sul em destaque",
     facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
     paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná.", "Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba também são importantes para viagens, compras, serviços e passeios."],
     links: [["Ver o mapa de Santa Catarina", "mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
@@ -108,16 +108,19 @@ function PanelTrigger({ detail, open }: { detail: DetailKey; open: (detail: Deta
 
 function LocationArt() {
   return (
-    <div className="location-art" aria-label="Localização: Brasil, Santa Catarina, São Bento do Sul">
+    <div className="location-art" aria-label="Localização de São Bento do Sul no Planalto Norte">
       <img
-        src="mapa-santa-catarina-ibge.jpg"
-        alt="Mapa completo de Santa Catarina com destaque para São Bento do Sul no nordeste do estado"
+        src="mapa-sul-planalto-norte-v2.png"
+        alt="Mapa ilustrado da região do Planalto Norte de Santa Catarina"
       />
-      <div className="map-label map-label-city">
+      <span className="region-name">PLANALTO NORTE</span>
+      <div className="map-city-card">
+        <i aria-hidden="true" />
         <strong>SÃO BENTO DO SUL</strong>
-        <small>Planalto Norte · divisa com o Paraná</small>
+        <small>perto da divisa com o Paraná</small>
       </div>
-      <span className="state-map-pin" aria-hidden="true">●</span>
+      <span className="map-neighbor map-neighbor-left">RIO NEGRINHO<br /><b>15 km</b></span>
+      <span className="map-neighbor map-neighbor-right">CAMPO ALEGRE<br /><b>25 km</b></span>
     </div>
   );
 }
@@ -231,29 +234,39 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
           <img src="foto-cidade-05.jpg" alt="Arquitetura histórica de São Bento do Sul" />
           <span>Uma história preservada</span>
         </div>
-        <p>Os indígenas Xokleng já viviam nesta região. Em 1873, começaram a chegar famílias alemãs, austríacas, polonesas e tchecas.</p>
+        <div className="history-story">
+          <p>Os indígenas Xokleng já conheciam e cuidavam destas terras muito antes da formação da cidade.</p>
+          <p>Em 1873, chegaram famílias alemãs, austríacas, polonesas e tchecas. Elas abriram caminhos e construíram casas, escolas, igrejas e oficinas.</p>
+        </div>
         <div className="timeline">
+          <div><b>1858</b><span>A Estrada Dona Francisca começa a ligar a serra ao litoral</span></div>
           <div><b>1873</b><span>Chegada das primeiras famílias europeias</span></div>
           <div><b>1876</b><span>O lugar recebe o nome de São Bento</span></div>
           <div><b>1883</b><span>São Bento passa a ser um município</span></div>
-          <div><b>1884</b><span>Começa a administração da cidade</span></div>
+          <div><b>1913</b><span>A estação de trem é aberta e aproxima a cidade de outros lugares</span></div>
+        </div>
+        <div className="history-curiosity">
+          <b>VOCÊ SABIA?</b>
+          <p>Em 1893, por um curto período, São Bento do Sul foi a cidade onde funcionou o governo de Santa Catarina.</p>
         </div>
         <PanelTrigger detail="historia" open={open} />
       </article>
 
       <article className="panel location">
         <div className="eyebrow">ONDE FICA</div>
-        <h2>Do Sul do Brasil<br />até a cidade.</h2>
+        <h2>No coração do<br />Planalto Norte.</h2>
         <LocationArt />
         <div className="nearby-cities" aria-label="Cidades importantes próximas">
-          <b>NO ENTORNO</b>
-          <span>Rio Negrinho · 15 km</span>
-          <span>Campo Alegre · 25 km</span>
+          <b>OUTRAS LIGAÇÕES IMPORTANTES</b>
           <span>Joinville · 80 km</span>
           <span>Jaraguá do Sul · 85 km</span>
           <span>Curitiba · 139 km</span>
         </div>
-        <p className="location-copy">A cidade fica no Planalto Norte de Santa Catarina. As principais estradas de acesso são a BR-280 e a SC-418. Sua altitude é de cerca de 838 m.</p>
+        <div className="location-why">
+          <b>POR QUE ESSA LOCALIZAÇÃO É IMPORTANTE?</b>
+          <p>A BR-280 e a SC-418 ligam a cidade ao Paraná, a Joinville e ao litoral. Isso facilita viagens e o transporte dos produtos feitos nas fábricas locais.</p>
+        </div>
+        <p className="location-copy"><strong>Na serra:</strong> São Bento do Sul fica a cerca de 838 metros de altitude. Por isso, o clima costuma ser mais fresco do que em muitas cidades do litoral.</p>
         <PanelTrigger detail="mapas" open={open} />
       </article>
 

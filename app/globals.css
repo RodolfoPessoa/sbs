@@ -104,28 +104,42 @@ button, a { font: inherit; }
 .cover-footer b { color: #f2bd45; }
 .back .panel { background: var(--paper); border-right: 1px solid #d8d2c5; }
 .back .panel:last-child { border: 0; }
-.history-photo { height: 25%; position: relative; margin: 0 0 6%; overflow: hidden; }
+.history-photo { height: 21%; position: relative; margin: 0 0 4%; overflow: hidden; }
 .history-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.78) contrast(.96); }
 .history-photo span { position: absolute; left: 0; bottom: 0; background: var(--coral); color: #fff; padding: 5px 7px; font-size: clamp(5px, .5vw, 8px); letter-spacing: .08em; }
-.timeline { display: grid; gap: 5px; margin-top: 6%; }
+.history-story { display: grid; gap: 5px; }
+.history-story p { margin: 0; }
+.timeline { display: grid; gap: 4px; margin-top: 4%; }
 .timeline div { display: grid; grid-template-columns: 42px 1fr; gap: 7px; align-items: center; padding-top: 5px; border-top: 1px solid #d1c9b9; }
 .timeline b { color: var(--coral); font: clamp(10px, 1vw, 15px) Georgia, serif; }
 .timeline span { font-size: clamp(5px, .57vw, 9px); line-height: 1.2; }
+.history-curiosity { margin-top: 5%; padding: 5% 5%; border-left: 3px solid var(--gold); background: var(--forest); color: #fff; }
+.history-curiosity b { color: var(--gold); font-size: clamp(6px, .55vw, 8.5px); letter-spacing: .12em; }
+.history-curiosity p { margin-top: 4px; font-size: clamp(6px, .59vw, 9px); line-height: 1.35; }
 .location { background: var(--cream) !important; }
 .location h2 { margin-bottom: 8px; }
-.location-art { height: 31%; position: relative; margin: 1% -2% 3%; overflow: hidden; border-radius: 2px; }
-.location-art > img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; mix-blend-mode: multiply; }
-.map-label { position: absolute; z-index: 2; display: grid; gap: 1px; padding: 5px 7px; box-shadow: 0 3px 10px #102d2528; line-height: 1; }
-.map-label strong { font-size: clamp(5px, .52vw, 8px); letter-spacing: .06em; }
-.map-label small { font-size: clamp(4px, .44vw, 7px); opacity: .78; }
-.map-label-south { left: 5%; bottom: 10%; background: var(--forest); color: #fff; }
-.map-label-state { right: 5%; bottom: 29%; background: var(--coral); color: #fff; }
-.map-label-city { right: 3%; top: 5%; max-width: 42%; background: var(--gold); color: var(--ink); border-left: 3px solid var(--coral); }
-.state-map-pin { position: absolute; z-index: 3; right: 17%; top: 32%; width: 15px; height: 15px; border-radius: 50%; background: var(--coral); color: transparent; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--coral), 0 4px 10px #0005; }
+.location-art { height: 39%; position: relative; margin: 1% -2% 3%; overflow: hidden; border: 1px solid #d1c19f; border-radius: 3px; background: #e6dcc6; box-shadow: inset 0 0 25px #4a2f1c18; }
+.location-art > img { position: absolute; top: -22%; left: -30%; width: 200%; height: auto; display: block; mix-blend-mode: multiply; }
+.location-art::after { content: ""; position: absolute; z-index: 1; right: 0; bottom: 0; left: 0; height: 41%; background: linear-gradient(180deg, #e6dcc6f2, #e6dcc6 32%); border-top: 1px solid #c8b991; }
+.region-name { position: absolute; z-index: 2; top: 5%; left: 5%; padding: 5px 7px; background: var(--forest); color: #fff; font-size: clamp(6px, .56vw, 8.5px); font-weight: 900; letter-spacing: .12em; box-shadow: 0 4px 10px #102d2533; }
+.map-city-card { position: absolute; z-index: 4; top: 40%; left: 50%; width: 60%; padding: 9px 10px 8px 34px; transform: translate(-50%, -50%); background: var(--gold); color: var(--deep); border: 2px solid #fff7df; box-shadow: 0 12px 22px #3b2a1d55; }
+.map-city-card i { position: absolute; left: 11px; top: 50%; width: 14px; height: 14px; transform: translateY(-65%); border-radius: 50% 50% 50% 0; rotate: -45deg; background: var(--coral); box-shadow: 0 0 0 3px #fff; }
+.map-city-card i::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: #fff; }
+.map-city-card strong, .map-city-card small { display: block; }
+.map-city-card strong { font-size: clamp(8px, .74vw, 11px); letter-spacing: .06em; }
+.map-city-card small { margin-top: 2px; font-size: clamp(6px, .52vw, 8px); }
+.map-neighbor { position: absolute; z-index: 3; bottom: 7%; padding: 5px 7px; background: #fffdf6ed; color: var(--forest); font-size: clamp(6px, .54vw, 8px); font-weight: 800; line-height: 1.2; box-shadow: 0 4px 12px #3b2a1d30; }
+.map-neighbor b { color: var(--coral); font-size: 1.05em; }
+.map-neighbor-left { left: 5%; }
+.map-neighbor-right { right: 5%; text-align: right; }
 .nearby-cities { display: flex; flex-wrap: wrap; gap: 4px; align-content: start; padding-top: 6px; border-top: 1px solid #cbbfa8; }
 .nearby-cities b { width: 100%; margin-bottom: 2px; color: var(--coral); font-size: clamp(5px, .55vw, 8px); letter-spacing: .15em; }
 .nearby-cities span { padding: 4px 5px; background: #fff; font-size: clamp(4px, .46vw, 7px); color: var(--deep); box-shadow: 0 2px 5px #3b2a1d12; }
-.location-copy { margin-top: 5% !important; font-size: clamp(6px, .62vw, 9px) !important; line-height: 1.35 !important; }
+.location-why { margin-top: 4%; padding: 4% 5%; border-left: 3px solid var(--coral); background: #fffaf0; }
+.location-why b { color: var(--forest); font-size: clamp(6px, .54vw, 8px); letter-spacing: .08em; }
+.location-why p { margin-top: 4px; font-size: clamp(6px, .58vw, 8.8px); line-height: 1.35; }
+.location-copy { margin-top: 4% !important; font-size: clamp(6px, .59vw, 8.8px) !important; line-height: 1.35 !important; }
+.location-copy strong { color: var(--coral); }
 .curiosities { background: var(--forest) !important; color: #fff; }
 .curiosities .eyebrow { color: var(--gold); }
 .photo-grid { height: 31%; display: grid; grid-template-columns: 1.2fr .8fr; grid-template-rows: 1fr 1fr; gap: 4px; }
@@ -248,15 +262,26 @@ button, a { font: inherit; }
   .economy-note img { width: 18mm; height: 18mm; }
   .qr-tile span { font-size: 7.5pt; }
   .economy-sources { font-size: 6.8pt; }
-  .history-photo { height: 23%; margin-bottom: 4%; }
+  .history-photo { height: 19%; margin-bottom: 3%; }
   .history-photo span, .photo-grid figcaption { font-size: 7.5pt; }
-  .timeline { gap: 4px; margin-top: 4%; }
+  .history-story p { font-size: 8.5pt; line-height: 1.3; }
+  .timeline { gap: 3px; margin-top: 3%; }
   .timeline div { grid-template-columns: 38px 1fr; }
   .timeline b { font-size: 11pt; }
-  .timeline span { font-size: 8pt; line-height: 1.2; }
+  .timeline span { font-size: 7.8pt; line-height: 1.15; }
+  .history-curiosity { margin-top: 3%; padding: 3.5% 4%; }
+  .history-curiosity b { font-size: 7.2pt; }
+  .history-curiosity p { font-size: 7.8pt; line-height: 1.25; }
+  .location-art { height: 37%; }
+  .region-name { font-size: 7.5pt; }
+  .map-city-card strong { font-size: 9pt; }
+  .map-city-card small, .map-neighbor { font-size: 7.2pt; }
   .nearby-cities b { font-size: 7.5pt; }
   .nearby-cities span { font-size: 7.5pt; padding: 4px 5px; }
-  .location-copy { font-size: 8.5pt !important; line-height: 1.3 !important; }
+  .location-why { margin-top: 3%; padding: 3.5% 4%; }
+  .location-why b { font-size: 7.2pt; }
+  .location-why p { font-size: 7.8pt; line-height: 1.25; }
+  .location-copy { margin-top: 3% !important; font-size: 8pt !important; line-height: 1.28 !important; }
   .tourism-list { margin-top: 4%; }
   .tourism-list li { font-size: 8pt; line-height: 1.2; }
   .tourism-fact span { font-size: 7.5pt; line-height: 1.2; }
