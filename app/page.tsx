@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type DetailKey = "dados" | "economia" | "cidade" | "historia" | "mapas" | "turismo";
+type PhotoView = { src: string; alt: string; caption: string };
 
 const details: Record<DetailKey, {
   kicker: string;
@@ -106,62 +107,68 @@ function PanelTrigger({ detail, open }: { detail: DetailKey; open: (detail: Deta
   );
 }
 
+function ZoomPhoto({
+  photo,
+  open,
+}: {
+  photo: PhotoView;
+  open?: (photo: PhotoView) => void;
+}) {
+  if (!open) return <img src={photo.src} alt={photo.alt} />;
+  return (
+    <button className="photo-zoom" onClick={() => open(photo)} aria-label={`Ampliar foto: ${photo.caption}`}>
+      <img src={photo.src} alt={photo.alt} />
+      <span className="photo-zoom-icon" aria-hidden="true">⌕</span>
+    </button>
+  );
+}
+
 function LocationArt() {
   return (
     <div className="location-art">
-      <svg viewBox="0 0 620 410" role="img" aria-labelledby="regional-map-title regional-map-description">
+      <svg viewBox="0 0 620 350" role="img" aria-labelledby="regional-map-title regional-map-description">
         <title id="regional-map-title">São Bento do Sul no Planalto Norte de Santa Catarina</title>
-        <desc id="regional-map-description">Mapa esquemático com Paraná ao norte, Santa Catarina ao sul e as cidades de Mafra, Rio Negrinho, São Bento do Sul e Campo Alegre.</desc>
+        <desc id="regional-map-description">Mapa feito com limites municipais do IBGE. Mostra Mafra, Rio Negrinho, São Bento do Sul e Campo Alegre.</desc>
         <defs>
-          <linearGradient id="map-ground" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#f3ead5" />
-            <stop offset="1" stopColor="#ded4bb" />
+          <linearGradient id="real-map-ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#f4eddc" />
+            <stop offset="1" stopColor="#e1d6bc" />
           </linearGradient>
-          <filter id="city-shadow" x="-30%" y="-30%" width="160%" height="180%">
-            <feDropShadow dx="0" dy="9" stdDeviation="7" floodColor="#342317" floodOpacity=".35" />
+          <filter id="real-city-shadow" x="-30%" y="-30%" width="170%" height="190%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#342317" floodOpacity=".38" />
           </filter>
         </defs>
+        <rect width="620" height="350" fill="url(#real-map-ground)" />
+        <text className="real-map-overline" x="26" y="28">PLANALTO NORTE · SANTA CATARINA</text>
+        <text className="real-map-neighbor-state" x="498" y="28">PARANÁ ↑</text>
 
-        <rect width="620" height="410" fill="url(#map-ground)" />
-        <path className="map-relief" d="M0 176 C75 132 142 166 207 129 C277 90 331 151 396 119 C470 82 530 101 620 62 L620 410 L0 410 Z" />
-        <path className="map-relief-line" d="M-20 340 C89 275 146 320 225 264 C318 198 391 279 481 210 C539 166 590 180 650 142" />
-        <path className="state-border" d="M0 82 C105 67 176 99 270 76 C371 51 462 87 620 61" />
-        <text className="map-state map-state-pr" x="24" y="42">PARANÁ</text>
-        <text className="map-state map-state-sc" x="24" y="116">SANTA CATARINA · PLANALTO NORTE</text>
-
-        <path className="road road-main" d="M54 247 C150 238 223 255 302 242 C392 227 465 242 567 222" />
-        <text className="road-label" x="65" y="229">BR-280</text>
-        <path className="road road-secondary" d="M408 235 C452 190 491 159 548 137" />
-        <text className="road-label" x="485" y="171" transform="rotate(-28 485 171)">SC-418</text>
-
-        <g className="map-place">
-          <circle cx="102" cy="242" r="7" />
-          <text x="82" y="272">MAFRA</text>
-        </g>
-        <g className="map-place">
-          <circle cx="255" cy="247" r="7" />
-          <text x="170" y="279">RIO NEGRINHO</text>
-        </g>
-        <g className="map-place">
-          <circle cx="505" cy="173" r="7" />
-          <text x="456" y="151">CAMPO ALEGRE</text>
+        <g className="real-municipalities">
+          <path className="municipality municipality-mafra" d="M 115.8 147.4 L 145.5 141.8 L 159.7 147.2 L 167.8 138.4 L 207.5 132.1 L 222.4 157.4 L 225.2 170.5 L 218.4 184.3 L 232.2 208.4 L 220.3 225.5 L 240.0 226.5 L 248.6 207.4 L 263.2 195.6 L 286.1 187.7 L 279.7 177.7 L 294.9 171.0 L 288.9 154.5 L 297.9 126.3 L 279.2 110.0 L 272.3 111.2 L 244.4 84.5 L 216.6 71.9 L 202.1 55.9 L 200.0 47.2 L 176.2 41.2 L 154.4 38.1 L 106.4 54.3 L 100.5 44.3 L 82.3 62.1 L 83.9 79.4 L 102.1 103.2 L 95.8 119.0 L 102.5 136.3 L 115.8 147.4 Z" />
+          <path className="municipality municipality-rio" d="M 340.5 113.0 L 335.1 123.5 L 317.5 129.0 L 297.9 126.3 L 288.9 154.5 L 294.9 171.0 L 279.7 177.7 L 286.1 187.7 L 263.2 195.6 L 248.6 207.4 L 240.0 226.5 L 249.6 247.6 L 250.0 258.2 L 264.9 268.5 L 267.3 285.1 L 259.6 298.7 L 264.4 314.9 L 279.9 317.4 L 290.8 322.0 L 293.2 295.3 L 304.2 289.4 L 306.3 270.9 L 312.0 265.3 L 318.5 248.9 L 328.2 248.7 L 357.3 233.7 L 338.7 213.6 L 341.8 205.5 L 352.8 193.1 L 348.6 182.9 L 346.5 132.2 L 340.5 113.0 Z" />
+          <path className="municipality municipality-sbs" d="M 426.7 143.4 L 399.7 124.3 L 393.1 112.2 L 376.3 115.2 L 361.8 103.1 L 340.9 109.3 L 340.5 113.0 L 346.5 132.2 L 348.6 182.9 L 352.8 193.1 L 341.8 205.5 L 355.7 208.3 L 360.2 184.5 L 371.4 176.6 L 394.5 188.5 L 412.8 185.3 L 434.6 196.1 L 454.9 183.2 L 450.9 174.8 L 457.4 159.6 L 426.7 143.4 Z" />
+          <path className="municipality municipality-campo" d="M 445.1 123.6 L 457.7 110.5 L 450.0 93.0 L 461.1 80.3 L 492.6 64.1 L 498.6 64.6 L 500.4 44.9 L 508.5 37.6 L 518.2 44.1 L 535.6 41.1 L 537.7 29.4 L 531.2 28.0 L 512.1 39.9 L 508.7 35.3 L 503.7 35.3 L 492.4 33.9 L 458.0 33.7 L 433.3 46.0 L 409.2 79.0 L 401.3 78.5 L 386.9 89.7 L 379.6 97.6 L 361.8 103.1 L 376.3 115.2 L 393.1 112.2 L 399.7 124.3 L 426.7 143.4 L 445.1 123.6 Z" />
         </g>
 
-        <g className="city-focus" filter="url(#city-shadow)">
-          <path d="M389 214 C389 190 421 190 421 214 C421 232 405 248 405 248 C405 248 389 232 389 214 Z" />
-          <circle cx="405" cy="213" r="7" />
-          <rect x="311" y="286" width="234" height="82" rx="3" />
-          <path className="city-pointer" d="M405 248 L389 286 L421 286 Z" />
-          <text className="city-name" x="428" y="314" textAnchor="middle">SÃO BENTO DO SUL</text>
-          <text className="city-detail" x="428" y="340" textAnchor="middle">26°15′S · 49°23′O</text>
-          <text className="city-detail" x="428" y="358" textAnchor="middle">perto da divisa com o Paraná</text>
+        <g className="real-city real-city-mafra">
+          <circle cx="227" cy="82" r="6" /><text x="186" y="75">MAFRA</text>
+        </g>
+        <g className="real-city real-city-rio">
+          <circle cx="332" cy="138" r="6" /><text x="252" y="164">RIO NEGRINHO</text>
+        </g>
+        <g className="real-city real-city-campo">
+          <circle cx="425" cy="114" r="6" /><text x="452" y="104">CAMPO ALEGRE</text>
         </g>
 
-        <g className="north-arrow" transform="translate(576 96)">
-          <path d="M0 27 L11 0 L22 27 L11 21 Z" />
-          <text x="11" y="-8" textAnchor="middle">N</text>
+        <g className="real-city-focus" filter="url(#real-city-shadow)">
+          <path className="real-pin" d="M369 132 C369 110 397 110 397 132 C397 149 383 162 383 162 C383 162 369 149 369 132 Z" />
+          <circle className="real-pin-center" cx="383" cy="131" r="6" />
+          <rect x="352" y="210" width="235" height="74" rx="3" />
+          <path className="real-card-pointer" d="M383 162 L368 210 L398 210 Z" />
+          <text className="real-city-name" x="469" y="239" textAnchor="middle">SÃO BENTO DO SUL</text>
+          <text className="real-city-detail" x="469" y="263" textAnchor="middle">município destacado em amarelo</text>
         </g>
-        <text className="map-note" x="24" y="399">MAPA ESQUEMÁTICO · DISTÂNCIAS APROXIMADAS</text>
+
+        <text className="real-map-source" x="26" y="334">LIMITES MUNICIPAIS: IBGE · MAPA COM NORTE PARA CIMA</text>
       </svg>
     </div>
   );
@@ -265,14 +272,23 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
   );
 }
 
-function Back({ open }: { open: (detail: DetailKey) => void }) {
+function Back({
+  open,
+  openPhoto,
+}: {
+  open: (detail: DetailKey) => void;
+  openPhoto?: (photo: PhotoView) => void;
+}) {
   return (
     <section className="sheet back" aria-label="Verso do folder">
       <article className="panel intro">
         <div className="eyebrow">NOSSA HISTÓRIA</div>
         <h2>Como a cidade<br />começou.</h2>
         <div className="history-photo">
-          <img src="foto-cidade-05.jpg" alt="Arquitetura histórica de São Bento do Sul" />
+          <ZoomPhoto
+            photo={{ src: "foto-cidade-05.jpg", alt: "Arquitetura histórica de São Bento do Sul", caption: "Uma história preservada" }}
+            open={openPhoto}
+          />
           <span>Uma história preservada</span>
         </div>
         <div className="history-story">
@@ -313,15 +329,24 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         <h2>O que vale<br />a pena conhecer?</h2>
         <div className="photo-grid">
           <figure className="photo-main">
-            <img src="acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
+            <ZoomPhoto
+              photo={{ src: "acervo-catedral-centro.jpg", alt: "Centro e Igreja Matriz Puríssimo Coração de Maria", caption: "Igreja Matriz Puríssimo Coração de Maria" }}
+              open={openPhoto}
+            />
             <figcaption>Igreja Matriz</figcaption>
           </figure>
           <figure>
-            <img src="acervo-maria-fumaca.jpg" alt="Maria Fumaça em meio à Mata Atlântica" />
+            <ZoomPhoto
+              photo={{ src: "acervo-maria-fumaca.jpg", alt: "Maria Fumaça em meio à Mata Atlântica", caption: "Maria Fumaça em meio à Mata Atlântica" }}
+              open={openPhoto}
+            />
             <figcaption>Maria Fumaça</figcaption>
           </figure>
           <figure>
-            <img src="acervo-schlachtfest.jpg" alt="Desfile tradicional da Schlachtfest" />
+            <ZoomPhoto
+              photo={{ src: "acervo-schlachtfest.jpg", alt: "Desfile tradicional da Schlachtfest", caption: "Desfile tradicional da Schlachtfest" }}
+              open={openPhoto}
+            />
             <figcaption>Schlachtfest</figcaption>
           </figure>
         </div>
@@ -351,6 +376,7 @@ export default function Home() {
   const [folds, setFolds] = useState(true);
   const [activeDetail, setActiveDetail] = useState<DetailKey | null>(null);
   const [activeFact, setActiveFact] = useState<string | null>(null);
+  const [activePhoto, setActivePhoto] = useState<PhotoView | null>(null);
   const selectedFact = activeDetail && activeFact
     ? details[activeDetail].facts.find(([, label]) => label === activeFact)
     : undefined;
@@ -362,6 +388,13 @@ export default function Home() {
     setActiveFact(null);
     setActiveDetail(null);
   };
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActivePhoto(null);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
 
   return (
     <main>
@@ -382,7 +415,7 @@ export default function Home() {
 
       <div className={`workspace ${folds ? "show-folds" : ""}`}>
         <div className="side-label">{side === "front" ? "LADO EXTERNO" : "LADO INTERNO"}</div>
-        {side === "front" ? <Front open={openDetail} /> : <Back open={openDetail} />}
+        {side === "front" ? <Front open={openDetail} /> : <Back open={openDetail} openPhoto={setActivePhoto} />}
         <p className="hint">Dica: na impressão, escolha A4 horizontal, escala 100% e ative “gráficos de fundo”.</p>
       </div>
 
@@ -398,7 +431,9 @@ export default function Home() {
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
             <button className="modal-close" onClick={closeDetail} aria-label="Fechar informações">×</button>
             <div className={`detail-visual ${activeDetail === "mapas" ? "map-mode" : ""} ${activeDetail === "economia" ? "economy-mode" : ""}`}>
-              {details[activeDetail].image && <img src={details[activeDetail].image} alt={details[activeDetail].imageAlt || ""} />}
+              {activeDetail === "mapas"
+                ? <LocationArt />
+                : details[activeDetail].image && <img src={details[activeDetail].image} alt={details[activeDetail].imageAlt || ""} />}
               <span>{details[activeDetail].kicker}</span>
             </div>
             <div className="detail-content">
@@ -436,7 +471,10 @@ export default function Home() {
               {details[activeDetail].gallery && (
                 <div className="detail-gallery">
                   {details[activeDetail].gallery?.map(([src, alt, caption]) => (
-                    <figure key={src}><img src={src} alt={alt} /><figcaption>{caption}</figcaption></figure>
+                    <figure key={src}>
+                      <ZoomPhoto photo={{ src, alt, caption }} open={setActivePhoto} />
+                      <figcaption>{caption}</figcaption>
+                    </figure>
                   ))}
                 </div>
               )}
@@ -447,6 +485,18 @@ export default function Home() {
               </div>
             </div>
           </section>
+        </div>
+      )}
+
+      {activePhoto && (
+        <div className="photo-lightbox" role="presentation" onMouseDown={(event) => {
+          if (event.target === event.currentTarget) setActivePhoto(null);
+        }}>
+          <button className="photo-lightbox-close" onClick={() => setActivePhoto(null)} aria-label="Fechar foto ampliada">×</button>
+          <figure role="dialog" aria-modal="true" aria-label={activePhoto.caption}>
+            <img src={activePhoto.src} alt={activePhoto.alt} />
+            <figcaption>{activePhoto.caption}</figcaption>
+          </figure>
         </div>
       )}
     </main>
