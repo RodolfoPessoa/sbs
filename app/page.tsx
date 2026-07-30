@@ -72,8 +72,8 @@ const details: Record<DetailKey, {
     kicker: "VEJA ONDE FICA",
     title: "São Bento do Sul no Planalto Norte",
     intro: "O mapa aproxima a região para mostrar com clareza onde fica São Bento do Sul e quais cidades estão por perto.",
-    image: "mapa-sul-planalto-norte-v2.png",
-    imageAlt: "Arte de localização do Planalto Norte de Santa Catarina com São Bento do Sul em destaque",
+    image: "mapa-santa-catarina-ibge.jpg",
+    imageAlt: "Mapa oficial de Santa Catarina produzido pelo IBGE",
     facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
     paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná.", "Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba também são importantes para viagens, compras, serviços e passeios."],
     links: [["Ver o mapa de Santa Catarina", "mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
@@ -108,19 +108,61 @@ function PanelTrigger({ detail, open }: { detail: DetailKey; open: (detail: Deta
 
 function LocationArt() {
   return (
-    <div className="location-art" aria-label="Localização de São Bento do Sul no Planalto Norte">
-      <img
-        src="mapa-sul-planalto-norte-v2.png"
-        alt="Mapa ilustrado da região do Planalto Norte de Santa Catarina"
-      />
-      <span className="region-name">PLANALTO NORTE</span>
-      <div className="map-city-card">
-        <i aria-hidden="true" />
-        <strong>SÃO BENTO DO SUL</strong>
-        <small>perto da divisa com o Paraná</small>
-      </div>
-      <span className="map-neighbor map-neighbor-left">RIO NEGRINHO<br /><b>15 km</b></span>
-      <span className="map-neighbor map-neighbor-right">CAMPO ALEGRE<br /><b>25 km</b></span>
+    <div className="location-art">
+      <svg viewBox="0 0 620 410" role="img" aria-labelledby="regional-map-title regional-map-description">
+        <title id="regional-map-title">São Bento do Sul no Planalto Norte de Santa Catarina</title>
+        <desc id="regional-map-description">Mapa esquemático com Paraná ao norte, Santa Catarina ao sul e as cidades de Mafra, Rio Negrinho, São Bento do Sul e Campo Alegre.</desc>
+        <defs>
+          <linearGradient id="map-ground" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#f3ead5" />
+            <stop offset="1" stopColor="#ded4bb" />
+          </linearGradient>
+          <filter id="city-shadow" x="-30%" y="-30%" width="160%" height="180%">
+            <feDropShadow dx="0" dy="9" stdDeviation="7" floodColor="#342317" floodOpacity=".35" />
+          </filter>
+        </defs>
+
+        <rect width="620" height="410" fill="url(#map-ground)" />
+        <path className="map-relief" d="M0 176 C75 132 142 166 207 129 C277 90 331 151 396 119 C470 82 530 101 620 62 L620 410 L0 410 Z" />
+        <path className="map-relief-line" d="M-20 340 C89 275 146 320 225 264 C318 198 391 279 481 210 C539 166 590 180 650 142" />
+        <path className="state-border" d="M0 82 C105 67 176 99 270 76 C371 51 462 87 620 61" />
+        <text className="map-state map-state-pr" x="24" y="42">PARANÁ</text>
+        <text className="map-state map-state-sc" x="24" y="116">SANTA CATARINA · PLANALTO NORTE</text>
+
+        <path className="road road-main" d="M54 247 C150 238 223 255 302 242 C392 227 465 242 567 222" />
+        <text className="road-label" x="65" y="229">BR-280</text>
+        <path className="road road-secondary" d="M408 235 C452 190 491 159 548 137" />
+        <text className="road-label" x="485" y="171" transform="rotate(-28 485 171)">SC-418</text>
+
+        <g className="map-place">
+          <circle cx="102" cy="242" r="7" />
+          <text x="82" y="272">MAFRA</text>
+        </g>
+        <g className="map-place">
+          <circle cx="255" cy="247" r="7" />
+          <text x="170" y="279">RIO NEGRINHO</text>
+        </g>
+        <g className="map-place">
+          <circle cx="505" cy="173" r="7" />
+          <text x="456" y="151">CAMPO ALEGRE</text>
+        </g>
+
+        <g className="city-focus" filter="url(#city-shadow)">
+          <path d="M389 214 C389 190 421 190 421 214 C421 232 405 248 405 248 C405 248 389 232 389 214 Z" />
+          <circle cx="405" cy="213" r="7" />
+          <rect x="311" y="286" width="234" height="82" rx="3" />
+          <path className="city-pointer" d="M405 248 L389 286 L421 286 Z" />
+          <text className="city-name" x="428" y="314" textAnchor="middle">SÃO BENTO DO SUL</text>
+          <text className="city-detail" x="428" y="340" textAnchor="middle">26°15′S · 49°23′O</text>
+          <text className="city-detail" x="428" y="358" textAnchor="middle">perto da divisa com o Paraná</text>
+        </g>
+
+        <g className="north-arrow" transform="translate(576 96)">
+          <path d="M0 27 L11 0 L22 27 L11 21 Z" />
+          <text x="11" y="-8" textAnchor="middle">N</text>
+        </g>
+        <text className="map-note" x="24" y="399">MAPA ESQUEMÁTICO · DISTÂNCIAS APROXIMADAS</text>
+      </svg>
     </div>
   );
 }
@@ -235,43 +277,40 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
         </div>
         <div className="history-story">
           <p>Os indígenas Xokleng já conheciam e cuidavam destas terras muito antes da formação da cidade.</p>
-          <p>Em 1873, chegaram famílias alemãs, austríacas, polonesas e tchecas. Elas abriram caminhos e construíram casas, escolas, igrejas e oficinas.</p>
+          <p>Em 1873, chegaram famílias europeias. Elas abriram caminhos e construíram casas, escolas, igrejas e oficinas.</p>
         </div>
         <div className="timeline">
-          <div><b>1858</b><span>A Estrada Dona Francisca começa a ligar a serra ao litoral</span></div>
           <div><b>1873</b><span>Chegada das primeiras famílias europeias</span></div>
           <div><b>1876</b><span>O lugar recebe o nome de São Bento</span></div>
           <div><b>1883</b><span>São Bento passa a ser um município</span></div>
           <div><b>1913</b><span>A estação de trem é aberta e aproxima a cidade de outros lugares</span></div>
         </div>
         <div className="history-curiosity">
-          <b>VOCÊ SABIA?</b>
-          <p>Em 1893, por um curto período, São Bento do Sul foi a cidade onde funcionou o governo de Santa Catarina.</p>
+          <b>UMA CURIOSIDADE SURPREENDENTE</b>
+          <p>Em 1893, por um curto período, o governo de Santa Catarina funcionou em São Bento do Sul.</p>
         </div>
         <PanelTrigger detail="historia" open={open} />
       </article>
 
       <article className="panel location">
         <div className="eyebrow">ONDE FICA</div>
-        <h2>No coração do<br />Planalto Norte.</h2>
+        <h2>Aqui está<br />São Bento do Sul.</h2>
         <LocationArt />
-        <div className="nearby-cities" aria-label="Cidades importantes próximas">
-          <b>OUTRAS LIGAÇÕES IMPORTANTES</b>
-          <span>Joinville · 80 km</span>
-          <span>Jaraguá do Sul · 85 km</span>
-          <span>Curitiba · 139 km</span>
+        <div className="location-facts" aria-label="Informações sobre a localização">
+          <div><strong>15 km</strong><span>até Rio Negrinho</span></div>
+          <div><strong>25 km</strong><span>até Campo Alegre</span></div>
+          <div><strong>838 m</strong><span>de altitude aproximada</span></div>
         </div>
         <div className="location-why">
-          <b>POR QUE ESSA LOCALIZAÇÃO É IMPORTANTE?</b>
-          <p>A BR-280 e a SC-418 ligam a cidade ao Paraná, a Joinville e ao litoral. Isso facilita viagens e o transporte dos produtos feitos nas fábricas locais.</p>
+          <b>ENTENDA O CAMINHO</b>
+          <p>A BR-280 passa pela região. A SC-418 segue pela serra em direção a Campo Alegre e Joinville. Essas estradas ligam a cidade ao Paraná e ao litoral.</p>
         </div>
-        <p className="location-copy"><strong>Na serra:</strong> São Bento do Sul fica a cerca de 838 metros de altitude. Por isso, o clima costuma ser mais fresco do que em muitas cidades do litoral.</p>
         <PanelTrigger detail="mapas" open={open} />
       </article>
 
       <article className="panel curiosities">
         <div className="eyebrow">PASSEIOS E TURISMO</div>
-        <h2>História, natureza<br />e bons passeios.</h2>
+        <h2>O que vale<br />a pena conhecer?</h2>
         <div className="photo-grid">
           <figure className="photo-main">
             <img src="acervo-catedral-centro.jpg" alt="Centro e Igreja Matriz Puríssimo Coração de Maria" />
@@ -286,13 +325,21 @@ function Back({ open }: { open: (detail: DetailKey) => void }) {
             <figcaption>Schlachtfest</figcaption>
           </figure>
         </div>
-        <ul className="tourism-list">
-          <li>Museu Municipal Dr. Felippe Maria Wolff</li>
-          <li>Estação Ferroviária e Museu da Música</li>
-          <li>Estrada Dona Francisca e Casa Eichendorf</li>
-          <li>Circuito das Araucárias de Cicloturismo</li>
-        </ul>
-        <div className="tourism-fact"><b>1893</b><span>Por um curto período, São Bento do Sul foi a cidade onde funcionou o governo de Santa Catarina.</span></div>
+        <div className="tourism-choices">
+          <div>
+            <b>GOSTA DE HISTÓRIA?</b>
+            <p>Visite o Museu Municipal, a Casa Eichendorf e a antiga estação, onde funciona o Museu da Música.</p>
+          </div>
+          <div>
+            <b>PREFERE NATUREZA?</b>
+            <p>Conheça a Estrada Dona Francisca, a região de Rio Vermelho e o Circuito das Araucárias.</p>
+          </div>
+          <div>
+            <b>QUER VER A CULTURA LOCAL?</b>
+            <p>A Schlachtfest reúne música, dança, roupas típicas e comidas de origem alemã.</p>
+          </div>
+        </div>
+        <div className="tourism-fact"><b>1913</b><span>A estação de trem foi aberta. Hoje, o prédio ajuda a contar a história da música da cidade.</span></div>
         <PanelTrigger detail="turismo" open={open} />
       </article>
     </section>
