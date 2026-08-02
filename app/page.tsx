@@ -65,8 +65,8 @@ const details: Record<DetailKey, {
     intro: "A história da cidade envolve os povos indígenas que já viviam na região, a chegada de famílias europeias e a construção de caminhos entre a serra e o litoral.",
     image: "acervo-casa-eichendorf.jpg",
     imageAlt: "Edificação histórica de São Bento do Sul",
-    facts: [["1858", "abertura da Estrada Dona Francisca"], ["1873", "chegada das primeiras famílias europeias"], ["1876", "o lugar recebe o nome São Bento"], ["1883", "criação do município"], ["1884", "início da administração municipal"], ["1893", "cidade abriga o governo de Santa Catarina por um tempo"]],
-    paragraphs: ["Os indígenas Xokleng já viviam na região. A partir de 1873, chegaram famílias alemãs, austríacas, polonesas e tchecas, trazidas por uma empresa de colonização chamada Sociedade Colonizadora de Hamburgo.", "Em 1876, Alfredo Taunay visitou a colônia, e o lugar recebeu o nome de São Bento. Hoje, museus, casas antigas e monumentos ajudam a contar essa história."],
+    facts: [["1858", "começa a Estrada Dona Francisca"], ["1873", "chegada das primeiras famílias europeias"], ["1876", "o lugar recebe o nome São Bento"], ["1883", "criação do município"], ["1884", "início da administração municipal"], ["1893", "cidade abriga o governo de Santa Catarina por um tempo"], ["1913", "a estação de trem é inaugurada"]],
+    paragraphs: ["Os indígenas Xokleng já viviam na região. Em 1873, um grupo pequeno subiu a serra a pé, levando ferramentas em lombo de mula, e começou a colônia.", "As famílias vieram da Áustria, da Baviera, da Prússia, da Saxônia, da Polônia e da Boêmia — lugares que hoje fazem parte da Alemanha, da Áustria, da Polônia e da Tchéquia. Elas foram trazidas por uma empresa de colonização, a Sociedade Colonizadora de Hamburgo.", "Em 1876, o lugar recebeu o nome de São Bento. Hoje, museus, casas antigas e monumentos ajudam a contar essa história."],
     links: [["História no portal de turismo", "https://turismoemsaobento.sc.gov.br/ver?conteudo=saobentodosul"]],
   },
   mapas: {
@@ -75,8 +75,8 @@ const details: Record<DetailKey, {
     intro: "O mapa aproxima a região para mostrar com clareza onde fica São Bento do Sul e quais cidades estão por perto.",
     image: "mapa-santa-catarina-ibge.jpg",
     imageAlt: "Mapa oficial de Santa Catarina produzido pelo IBGE",
-    facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 85 km", "Jaraguá do Sul"], ["≈ 115 km", "São Francisco do Sul"], ["≈ 139 km", "Curitiba"]],
-    paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná.", "Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas. Joinville, Jaraguá do Sul, São Francisco do Sul e Curitiba também são importantes para viagens, compras, serviços e passeios."],
+    facts: [["≈ 15 km", "Rio Negrinho"], ["≈ 25 km", "Campo Alegre"], ["≈ 80 km", "Joinville"], ["≈ 139 km", "Curitiba"], ["838 m", "altitude"], ["495 km²", "tamanho do município"], ["Mata Atlântica", "bioma", "Bioma é um grande conjunto de matas, bichos e clima que combinam entre si. Todo o território de São Bento do Sul fica dentro da Mata Atlântica."], ["≈ 14 °C", "média de julho", "Média é o valor do meio: somamos a temperatura de todos os dias de julho e dividimos pelo número de dias. Julho é o mês mais frio do ano na cidade."], ["Comum no inverno", "geada", "Geada é o gelo fininho que se forma de madrugada, quando a temperatura cai muito perto do chão. Em São Bento do Sul isso acontece em várias madrugadas de inverno."]],
+    paragraphs: ["São Bento do Sul fica no nordeste de Santa Catarina, perto da divisa com o Paraná. Rio Negrinho e Campo Alegre são as cidades vizinhas mais próximas.", "A cidade está a 838 metros de altitude, na serra. Nessa altura crescem bem as araucárias, o pinheiro-do-paraná, que aparece principalmente acima de 800 metros.", "Por causa da altitude, o inverno é frio: em julho a média fica perto de 14 °C e a geada é comum de madrugada."],
     links: [["Ver o mapa de Santa Catarina", "mapa-santa-catarina-ibge.jpg"], ["Ver o mapa da cidade", "mapa-municipal-ibge.png"], ["Explorar o mapa interativo da prefeitura", "https://geo.saobentodosul.sc.gov.br/"]],
   },
   turismo: {
@@ -85,8 +85,8 @@ const details: Record<DetailKey, {
     intro: "Na cidade, é possível visitar museus, conhecer lugares antigos, andar de bicicleta, aproveitar a natureza, experimentar comidas e participar de festas.",
     image: "acervo-maria-fumaca.jpg",
     imageAlt: "Maria Fumaça em meio à Mata Atlântica",
-    facts: [["Museu Dr. Felippe Maria Wolff", "conta a história da cidade"], ["Museu da Música", "mostra a história da música local"], ["Estrada Dona Francisca", "estrada antiga cercada por paisagens"], ["Schlachtfest", "uma das maiores festas da cidade"], ["Rio Vermelho", "região rural com cultura e natureza"], ["Parque das Aves", "lugar para conhecer e aprender sobre aves"]],
-    paragraphs: ["São Bento do Sul oferece passeios para quem gosta de história, natureza, compras, comida, festas e aventuras ao ar livre.", "A Schlachtfest tem música, dança e comidas de origem alemã. A estação de trem foi aberta em 1913 e hoje abriga o Museu da Música."],
+    facts: [["Museu Dr. Felippe Maria Wolff", "conta a história da cidade"], ["Museu da Música", "fica na estação de trem de 1913"], ["Estrada Dona Francisca", "caminho pela serra começado em 1858"], ["41ª edição", "da Schlachtfest, em 2025"], ["Setembro", "mês em que a Schlachtfest acontece"], ["Rio Vermelho", "região rural com cultura e natureza"]],
+    paragraphs: ["São Bento do Sul oferece passeios para quem gosta de história, natureza, compras, comida, festas e aventuras ao ar livre.", "A Schlachtfest tem música, dança, roupas típicas e comidas de origem alemã. Ela é organizada pela Sociedade Ginástica e Desportiva São Bento do Sul, que completou 100 anos em 2025.", "A estação de trem foi inaugurada em 1913 e hoje abriga o Museu Municipal da Música Maestro Pedro Machado de Bitencourt."],
     links: [["Ver todos os atrativos", "https://www.turismoemsaobento.sc.gov.br/"], ["Buscar vídeos sobre o destino", "https://www.youtube.com/results?search_query=turismo+São+Bento+do+Sul+SC"]],
     gallery: [
       ["acervo-catedral-centro.jpg", "Centro de São Bento do Sul e Igreja Matriz", "Centro & Matriz"],
@@ -139,8 +139,8 @@ function LocationArt() {
           </filter>
         </defs>
         <rect width="620" height="350" fill="url(#real-map-ground)" />
-        <text className="real-map-overline" x="26" y="28">PLANALTO NORTE · SANTA CATARINA</text>
-        <text className="real-map-neighbor-state" x="498" y="28">PARANÁ ↑</text>
+        <text className="real-map-overline" x="26" y="28">PLANALTO NORTE</text>
+        <text className="real-map-neighbor-state" x="612" y="28" textAnchor="end">PARANÁ ↑</text>
 
         <g className="real-municipalities">
           <path className="municipality municipality-mafra" d="M 115.8 147.4 L 145.5 141.8 L 159.7 147.2 L 167.8 138.4 L 207.5 132.1 L 222.4 157.4 L 225.2 170.5 L 218.4 184.3 L 232.2 208.4 L 220.3 225.5 L 240.0 226.5 L 248.6 207.4 L 263.2 195.6 L 286.1 187.7 L 279.7 177.7 L 294.9 171.0 L 288.9 154.5 L 297.9 126.3 L 279.2 110.0 L 272.3 111.2 L 244.4 84.5 L 216.6 71.9 L 202.1 55.9 L 200.0 47.2 L 176.2 41.2 L 154.4 38.1 L 106.4 54.3 L 100.5 44.3 L 82.3 62.1 L 83.9 79.4 L 102.1 103.2 L 95.8 119.0 L 102.5 136.3 L 115.8 147.4 Z" />
@@ -150,25 +150,29 @@ function LocationArt() {
         </g>
 
         <g className="real-city real-city-mafra">
-          <circle cx="227" cy="82" r="6" /><text x="186" y="75">MAFRA</text>
+          <circle cx="227" cy="82" r="6" /><text x="168" y="68">MAFRA</text>
         </g>
         <g className="real-city real-city-rio">
-          <circle cx="332" cy="138" r="6" /><text x="252" y="164">RIO NEGRINHO</text>
+          <circle cx="332" cy="138" r="6" /><text x="202" y="182">RIO NEGRINHO</text>
         </g>
         <g className="real-city real-city-campo">
-          <circle cx="425" cy="114" r="6" /><text x="452" y="104">CAMPO ALEGRE</text>
+          <circle cx="425" cy="114" r="6" /><text x="614" y="92" textAnchor="end">CAMPO ALEGRE</text>
         </g>
 
+        {/* O filtro de sombra fica so nas formas: o Chrome rasteriza subarvores
+            filtradas ao gerar PDF, e o texto sairia como bitmap borrado. */}
         <g className="real-city-focus" filter="url(#real-city-shadow)">
           <path className="real-pin" d="M369 132 C369 110 397 110 397 132 C397 149 383 162 383 162 C383 162 369 149 369 132 Z" />
           <circle className="real-pin-center" cx="383" cy="131" r="6" />
-          <rect x="352" y="210" width="235" height="74" rx="3" />
+          <rect x="330" y="210" width="280" height="76" rx="3" />
           <path className="real-card-pointer" d="M383 162 L368 210 L398 210 Z" />
-          <text className="real-city-name" x="469" y="239" textAnchor="middle">SÃO BENTO DO SUL</text>
-          <text className="real-city-detail" x="469" y="263" textAnchor="middle">município destacado em amarelo</text>
+        </g>
+        <g className="real-city-focus">
+          <text className="real-city-name" x="470" y="240" textAnchor="middle">SÃO BENTO DO SUL</text>
+          <text className="real-city-detail" x="470" y="267" textAnchor="middle">o município em amarelo</text>
         </g>
 
-        <text className="real-map-source" x="26" y="334">LIMITES MUNICIPAIS: IBGE · MAPA COM NORTE PARA CIMA</text>
+        <text className="real-map-source" x="26" y="334">LIMITES MUNICIPAIS: IBGE</text>
       </svg>
     </div>
   );
@@ -229,9 +233,7 @@ function Front({ open }: { open: (detail: DetailKey) => void }) {
           <p><strong>Móveis:</strong> Rudnick e Artefama</p>
           <p><strong>Metal:</strong> ArcelorMittal Tuper</p>
           <p><strong>Cerâmica:</strong> Oxford Porcelanas</p>
-          <p><strong>Têxtil:</strong> Buddemeyer</p>
-          <p><strong>Higiene e limpeza:</strong> Condor</p>
-          <small>São exemplos conhecidos; a cidade também possui muitas empresas menores.</small>
+          <small>A cidade também tem a Buddemeyer, que faz toalhas, e a Condor, que faz escovas e vassouras — além de muitas empresas menores.</small>
         </div>
         <div className="economy-note">
           <a className="qr-tile" href="https://rodolfopessoa.github.io/sbs/" target="_blank" rel="noreferrer" aria-label="Abrir o infográfico de São Bento do Sul">
@@ -292,18 +294,20 @@ function Back({
           <span>Uma história preservada</span>
         </div>
         <div className="history-story">
-          <p>Os indígenas Xokleng já conheciam e cuidavam destas terras muito antes da formação da cidade.</p>
-          <p>Em 1873, chegaram famílias europeias. Elas abriram caminhos e construíram casas, escolas, igrejas e oficinas.</p>
+          <p>Os indígenas Xokleng já conheciam e cuidavam destas terras muito antes de a cidade existir.</p>
+          <p>Em 1873, um grupo pequeno subiu a serra a pé, levando ferramentas em lombo de mula. Ali começou São Bento do Sul.</p>
         </div>
         <div className="timeline">
-          <div><b>1873</b><span>Chegada das primeiras famílias europeias</span></div>
+          <div><b>1858</b><span>Começa a Estrada Dona Francisca, ligando a serra ao litoral</span></div>
+          <div><b>1873</b><span>Chegam as primeiras famílias vindas da Europa</span></div>
           <div><b>1876</b><span>O lugar recebe o nome de São Bento</span></div>
           <div><b>1883</b><span>São Bento passa a ser um município</span></div>
-          <div><b>1913</b><span>A estação de trem é aberta e aproxima a cidade de outros lugares</span></div>
+          <div><b>1893</b><span>Por um tempo, o governo de Santa Catarina funciona aqui</span></div>
+          <div><b>1913</b><span>A estação de trem é inaugurada e aproxima a cidade</span></div>
         </div>
         <div className="history-curiosity">
-          <b>UMA CURIOSIDADE SURPREENDENTE</b>
-          <p>Em 1893, por um curto período, o governo de Santa Catarina funcionou em São Bento do Sul.</p>
+          <b>DE ONDE VIERAM AS FAMÍLIAS</b>
+          <p>Áustria, Baviera, Prússia, Saxônia, Polônia e Boêmia. Hoje esses lugares fazem parte da Alemanha, da Áustria, da Polônia e da Tchéquia.</p>
         </div>
         <PanelTrigger detail="historia" open={open} />
       </article>
@@ -313,20 +317,30 @@ function Back({
         <h2>Aqui está<br />São Bento do Sul.</h2>
         <LocationArt />
         <div className="location-facts" aria-label="Informações sobre a localização">
+          <div><strong>838 m</strong><span>de altitude</span></div>
+          <div><strong>495 km²</strong><span>de tamanho</span></div>
           <div><strong>15 km</strong><span>até Rio Negrinho</span></div>
-          <div><strong>25 km</strong><span>até Campo Alegre</span></div>
-          <div><strong>838 m</strong><span>de altitude aproximada</span></div>
+        </div>
+        <div className="nature-box">
+          <b>A NATUREZA DAQUI</b>
+          <div className="nature-grid">
+            <div><strong>Mata Atlântica</strong><span>Todo o município fica dentro desse bioma</span></div>
+            <div><strong>Araucárias</strong><span>Pinheiro-do-paraná, típico acima de 800 m</span></div>
+            <div><strong>≈ 14 °C</strong><span>Julho é o mês mais frio do ano</span></div>
+            <div><strong>Geada</strong><span>Aparece em várias madrugadas de inverno</span></div>
+          </div>
+          <small><strong>Bioma</strong> é um grande conjunto de matas, bichos e clima que combinam entre si. <strong>Geada</strong> é o gelo fininho que se forma de madrugada quando faz muito frio.</small>
         </div>
         <div className="location-why">
           <b>ENTENDA O CAMINHO</b>
-          <p>A BR-280 passa pela região. A SC-418 segue pela serra em direção a Campo Alegre e Joinville. Essas estradas ligam a cidade ao Paraná e ao litoral.</p>
+          <p>A BR-280 passa pela região e a SC-418 sobe a serra até Joinville. Elas ligam a cidade ao Paraná e ao litoral.</p>
         </div>
         <PanelTrigger detail="mapas" open={open} />
       </article>
 
       <article className="panel curiosities">
-        <div className="eyebrow">PASSEIOS E TURISMO</div>
-        <h2>O que vale<br />a pena conhecer?</h2>
+        <div className="eyebrow">A CIDADE HOJE</div>
+        <h2>Quem mora e o<br />que dá para fazer.</h2>
         <div className="photo-grid">
           <figure className="photo-main">
             <ZoomPhoto
@@ -350,21 +364,30 @@ function Back({
             <figcaption>Schlachtfest</figcaption>
           </figure>
         </div>
+        <div className="people-box">
+          <b>GENTE E ESCOLA</b>
+          <div className="people-grid">
+            <div><strong>83.277</strong><span>moradores contados no Censo de 2022</span></div>
+            <div><strong>87.661</strong><span>estimativa para 2025: a cidade cresceu</span></div>
+            <div><strong>168</strong><span>pessoas por km², em média</span></div>
+            <div><strong>98,45%</strong><span>das crianças de 6 a 14 anos estão na escola</span></div>
+          </div>
+          <small><strong>Censo</strong> é a contagem de todas as pessoas do país, feita pelo IBGE de tempos em tempos. Nas escolas públicas, a nota do <strong>IDEB</strong> nos primeiros anos foi <strong>6,9</strong> em 2023 — o IDEB mostra o quanto os alunos estão aprendendo.</small>
+        </div>
         <div className="tourism-choices">
           <div>
             <b>GOSTA DE HISTÓRIA?</b>
-            <p>Visite o Museu Municipal, a Casa Eichendorf e a antiga estação, onde funciona o Museu da Música.</p>
+            <p>O Museu da Música fica na antiga estação de trem, inaugurada em 1913.</p>
           </div>
           <div>
             <b>PREFERE NATUREZA?</b>
-            <p>Conheça a Estrada Dona Francisca, a região de Rio Vermelho e o Circuito das Araucárias.</p>
+            <p>A Estrada Dona Francisca, começada em 1858, atravessa a serra entre araucárias.</p>
           </div>
           <div>
-            <b>QUER VER A CULTURA LOCAL?</b>
-            <p>A Schlachtfest reúne música, dança, roupas típicas e comidas de origem alemã.</p>
+            <b>GOSTA DE FESTA?</b>
+            <p>A Schlachtfest acontece em setembro e chegou à 41ª edição em 2025.</p>
           </div>
         </div>
-        <div className="tourism-fact"><b>1913</b><span>A estação de trem foi aberta. Hoje, o prédio ajuda a contar a história da música da cidade.</span></div>
         <PanelTrigger detail="turismo" open={open} />
       </article>
     </section>
