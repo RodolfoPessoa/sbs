@@ -439,7 +439,7 @@ export default function Home() {
       <div className={`workspace ${folds ? "show-folds" : ""}`}>
         <div className="side-label">{side === "front" ? "LADO EXTERNO" : "LADO INTERNO"}</div>
         {side === "front" ? <Front open={openDetail} /> : <Back open={openDetail} openPhoto={setActivePhoto} />}
-        <p className="hint">Dica: na impressão, escolha A4 horizontal, escala 100% e ative “gráficos de fundo”.</p>
+        <p className="hint">Esta é exatamente a folha que sai na impressora. Passe o mouse sobre um painel para abrir mais informações. Ao imprimir, escolha A4 horizontal, escala 100% e ative “gráficos de fundo”.</p>
       </div>
 
       <div className="print-only">

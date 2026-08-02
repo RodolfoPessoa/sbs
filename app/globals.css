@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 :root {
   --ink: #3b2a1d;
@@ -25,7 +25,7 @@ button, a { font: inherit; }
 .segmented button.active { background: var(--forest); color: #fff; }
 .toolbar .print-button { background: var(--coral); color: #fff; border-color: var(--coral); font-weight: 700; }
 .workspace { min-height: calc(100vh - 72px); padding: 38px 20px; display: grid; place-items: center; align-content: center; gap: 12px; overflow: auto; }
-.side-label { width: 1120px; font-size: 10px; font-weight: 700; letter-spacing: .2em; color: #78827d; }
+.side-label { width: 297mm; font-size: 10px; font-weight: 700; letter-spacing: .2em; color: #78827d; }
 /* Abaixo da largura da folha, alinhar ao inicio: centralizado, a parte
    esquerda do folder fica inalcancavel pela rolagem. */
 @media (max-width: 1199px) { .workspace { place-items: start; } }
@@ -33,12 +33,9 @@ button, a { font: inherit; }
    pela janela. Sem isso, o mesmo folder de 1120px renderiza textos maiores
    num monitor grande e corta o fim dos paineis. A 1120px a folha tem quase
    exatamente a largura fisica de um A4, entao a tela vira previa do papel. */
-.sheet { width: 1120px; aspect-ratio: 297 / 210; container-type: inline-size; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper); box-shadow: 0 18px 60px #1d332b2b; overflow: hidden; position: relative; }
+.sheet { width: 297mm; height: 210mm; container-type: inline-size; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper); box-shadow: 0 18px 60px #1d332b2b; overflow: hidden; position: relative; }
 .show-folds .sheet::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent calc(33.333% - .5px), #263e3557 calc(33.333% - .5px), #263e3557 calc(33.333% + .5px), transparent calc(33.333% + .5px), transparent calc(66.666% - .5px), #263e3557 calc(66.666% - .5px), #263e3557 calc(66.666% + .5px), transparent calc(66.666% + .5px)); }
-/* A folga inferior maior reserva a faixa do botao "toque para explorar",
-   que e absoluto e antes ficava por cima do texto. Na impressao o botao
-   some e o padding e redeclarado, entao essa folga nao gasta papel. */
-.panel { position: relative; overflow: hidden; padding: 6.2% 7.2% 13%; }
+.panel { position: relative; overflow: hidden; padding: 4.8% 5.6%; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 .panel-trigger { position: absolute; z-index: 5; right: 6%; bottom: 4%; display: flex; align-items: center; gap: 7px; border: 0; border-radius: 999px; padding: 5px 6px 5px 9px; background: #ffffffed; color: var(--forest); box-shadow: 0 5px 16px #102d2532; cursor: pointer; }
 .panel-trigger span { font-size: clamp(4px, .46cqw, 7px); font-weight: 800; letter-spacing: .08em; }
 .panel-trigger b { width: 18px; height: 18px; border-radius: 50%; background: var(--coral); color: #fff; display: grid; place-items: center; font-size: 12px; line-height: 1; }
@@ -47,6 +44,21 @@ button, a { font: inherit; }
 /* Na capa o rodape ja ocupa a base, entao o botao sobe para o vao
    entre o bloco do titulo e o rodape. */
 .cover .panel-trigger { bottom: 13%; }
+/* A folha na tela E o impresso, entao nenhum controle pode ocupar espaco
+   nem aparecer em repouso. Com mouse, a pilula surge ao passar sobre o
+   painel. Em telas de toque nao existe hover: ali ela fica sempre visivel,
+   senao ninguem descobre que da para tocar. */
+@media (hover: hover) {
+  .panel-trigger { opacity: 0; transition: opacity .18s ease, transform .18s ease; }
+  .panel:hover .panel-trigger, .panel-trigger:focus-visible { opacity: 1; }
+}
+/* Sem hover a pilula fica permanente, entao vai para o alto do painel:
+   la ela cobre imagem ou espaco vazio, nunca o texto, que agora desce
+   ate perto da margem por seguir a medida do papel. */
+@media (hover: none) {
+  .panel-trigger { top: 2.5%; bottom: auto; }
+  .cover .panel-trigger { top: auto; bottom: 13%; }
+}
 .eyebrow { font-size: clamp(8px, .72cqw, 11px); font-weight: 800; letter-spacing: .19em; color: var(--coral); margin-bottom: 16px; }
 .panel h2 { margin: 0 0 20px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(25px, 3.15cqw, 48px); line-height: .95; letter-spacing: -.04em; }
 .panel p { font-size: clamp(10px, .86cqw, 13px); line-height: 1.5; margin: 0; }
@@ -189,6 +201,95 @@ button, a { font: inherit; }
 .tourism-choices div { padding: 6px 8px; border-left: 3px solid var(--gold); background: #ffffff0d; }
 .tourism-choices b { color: var(--gold); font-size: clamp(7px, .63cqw, 9.5px); letter-spacing: .07em; }
 .tourism-choices p { margin-top: 3px; color: #fff; font-size: clamp(7px, .67cqw, 10px); line-height: 1.32; }
+
+/* ==========================================================================
+   ESCALA DO FOLDER â€” vale na tela E no papel.
+   A folha mede 297mm nos dois casos e o CSS define 1mm = 96/25.4 px, entao
+   um tamanho em pt aqui ocupa exatamente o mesmo espaco fisico na tela e na
+   impressao: a tela e a versao impressa, nao uma aproximacao dela.
+   Piso do projeto: 8.5pt. Regras acima ficam para cor, borda e espacamento;
+   estas, declaradas depois, mandam no tamanho.
+   ========================================================================== */
+.eyebrow { margin-bottom: 9px; font-size: 9pt; letter-spacing: .13em; }
+.panel h2 { margin-bottom: 11px; font-size: 25pt; line-height: .98; }
+.panel p { font-size: 10pt; line-height: 1.34; }
+
+.print-glossary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 7px; margin: 0 0 4px; padding: 6px 7px; border-left: 2px solid var(--gold); background: #fff8e9; }
+.print-glossary b { grid-column: 1 / -1; color: var(--coral); font-size: 8.5pt; letter-spacing: .06em; }
+.print-glossary p { font-size: 9pt; line-height: 1.22; }
+.print-glossary strong { color: var(--forest); }
+.flap .microcopy { display: none; }
+/* Bandeira mais baixa: e o que garante que o glossario feche dentro da
+   margem inferior em vez de encostar no corte do papel. */
+.flag-frame { margin-bottom: 4%; }
+.flag-frame img { aspect-ratio: 400 / 250; }
+.flap h2 { font-size: 25pt; }
+.flap .lead, .economy > p { font-size: 10pt; line-height: 1.34; }
+.flap-profile { margin-top: 4%; padding: 4%; }
+.flap-profile-title { margin-bottom: 3%; }
+.flap-profile-title span, .economy-examples > b { font-size: 8.5pt; }
+.flap-profile-title i { font-size: 8.5pt; }
+.flap-profile > p, .economy-examples p, .economy-note p { font-size: 9.5pt; line-height: 1.28; }
+.flap-profile-grid { margin-top: 3.5%; padding-top: 3.5%; }
+.flap-profile-grid span, .economy-examples small, .economy-number span { font-size: 9pt; }
+.flap-profile-grid strong { font-size: 10pt; }
+.flap-data span, .sectors span { font-size: 9pt; }
+.flap-data { padding: 3.5% 0; }
+.flap-data strong { font-size: 13pt; }
+.back-cover h2 { font-size: 25pt; }
+.economy-number { margin: 4.5% 0 4%; padding: 4% 0; }
+.economy-number strong { font-size: 28pt; }
+.economy-examples { margin-top: 4%; padding: 4%; }
+.economy-examples p { padding: 3px 0; }
+.economy-note { grid-template-columns: 20mm 1fr; padding: 7px 8px; }
+.economy-note img { width: 18mm; height: 18mm; }
+.economy-note b { font-size: 9pt; }
+.qr-tile span { font-size: 8.5pt; }
+.economy-sources { font-size: 8.5pt; line-height: 1.22; }
+
+.back .panel { padding: 4.4% 5%; }
+.back .panel h2 { font-size: 22pt; line-height: .96; }
+.history-photo { height: 19%; margin-bottom: 3.5%; }
+.history-photo span, .photo-grid figcaption { font-size: 9pt; }
+.history-story p { font-size: 10.5pt; line-height: 1.3; }
+.timeline { gap: 4px; margin-top: 3.5%; }
+.timeline div { grid-template-columns: 42px 1fr; padding-top: 6px; }
+.timeline b { font-size: 13pt; }
+.timeline span { font-size: 10pt; line-height: 1.2; }
+.history-curiosity { margin-top: 3.5%; padding: 4%; }
+.history-curiosity b { font-size: 9.5pt; }
+.history-curiosity p { font-size: 10pt; line-height: 1.3; }
+
+.location-art { height: 31%; }
+.location-facts strong { font-size: 13pt; }
+.location-facts span { font-size: 9.5pt; }
+.nature-box { margin-top: 3.5%; padding: 4%; }
+.nature-box > b { font-size: 9.5pt; }
+.nature-grid { gap: 6px 8px; margin-top: 6px; }
+.nature-grid strong { font-size: 11pt; }
+.nature-grid span { font-size: 9.5pt; line-height: 1.2; }
+.nature-box small { margin-top: 7px; font-size: 9pt; line-height: 1.28; }
+.location-why { margin-top: 3.5%; padding: 4%; }
+.location-why b { font-size: 9.5pt; }
+.location-why p { font-size: 10pt; line-height: 1.3; }
+
+.photo-grid { height: 26%; }
+.people-box { margin-top: 4%; padding: 7px 9px; }
+.people-box > b { font-size: 9.5pt; }
+.people-grid { gap: 6px 8px; margin-top: 6px; }
+.people-grid strong { font-size: 13.5pt; }
+.people-grid span { font-size: 9.5pt; line-height: 1.2; }
+.people-box small { margin-top: 7px; font-size: 9pt; line-height: 1.28; }
+.tourism-choices { gap: 6px; margin-top: 4%; }
+.tourism-choices div { padding: 6px 8px; }
+.tourism-choices b { font-size: 9.5pt; }
+.tourism-choices p { font-size: 10pt; line-height: 1.28; }
+
+.cover-top, .cover-title p { font-size: 8.5pt; }
+.cover-landmark span { font-size: 8.5pt; }
+.cover-landmark b { font-size: 11pt; }
+.title-rule, .cover-footer { font-size: 8.5pt; }
+
 .hint { margin: 0; font-size: 11px; color: #758079; }
 .print-only { display: none; }
 .detail-backdrop { position: fixed; z-index: 50; inset: 0; padding: 28px; background: #071c17d9; backdrop-filter: blur(10px); display: grid; place-items: center; }
@@ -266,97 +367,16 @@ button, a { font: inherit; }
 }
 
 @page { size: A4 landscape; margin: 0; }
+/* A escala do folder agora e a mesma nos dois meios (bloco "ESCALA DO
+   FOLDER" acima), entao aqui so sobra o que e especifico do papel:
+   esconder os controles da tela e quebrar as duas folhas em duas paginas. */
 @media print {
   body { background: #fff; }
   .toolbar, .workspace { display: none !important; }
   .detail-backdrop, .panel-trigger { display: none !important; }
   .photo-zoom-icon, .photo-lightbox { display: none !important; }
   .print-only { display: block; }
-  .print-only .sheet { width: 297mm; height: 210mm; box-shadow: none; break-after: page; }
+  .print-only .sheet { box-shadow: none; break-after: page; }
   .print-only .sheet:last-child { break-after: auto; }
-  .panel { padding: 4.8% 5.6%; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-
-  /* Escala tipografica da impressao. Na tela os tamanhos usam clamp() com vw,
-     mas na impressao 1vw vale 1% de 297mm (~8.4pt), entao todo clamp desaba
-     para o minimo em px e o texto sai minusculo. Por isso cada tamanho e
-     redeclarado aqui em pt. Piso do projeto: 8.5pt. */
-  .eyebrow { margin-bottom: 9px; font-size: 9pt; letter-spacing: .13em; }
-  .panel h2 { margin-bottom: 11px; font-size: 25pt; line-height: .98; }
-  .panel p { font-size: 10pt; line-height: 1.34; }
-
-  .print-glossary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 7px; margin: 0 0 4px; padding: 6px 7px; border-left: 2px solid var(--gold); background: #fff8e9; }
-  .print-glossary b { grid-column: 1 / -1; color: var(--coral); font-size: 8.5pt; letter-spacing: .06em; }
-  .print-glossary p { font-size: 9pt; line-height: 1.22; }
-  .print-glossary strong { color: var(--forest); }
-  .flap .microcopy { display: none; }
-  /* Bandeira mais baixa: e o que garante que o glossario feche dentro da
-     margem inferior em vez de encostar no corte do papel. */
-  .flag-frame { margin-bottom: 4%; }
-  .flag-frame img { aspect-ratio: 400 / 250; }
-  .flap h2 { font-size: 25pt; }
-  .flap .lead, .economy > p { font-size: 10pt; line-height: 1.34; }
-  .flap-profile { margin-top: 4%; padding: 4%; }
-  .flap-profile-title { margin-bottom: 3%; }
-  .flap-profile-title span, .economy-examples > b { font-size: 8.5pt; }
-  .flap-profile-title i { font-size: 8.5pt; }
-  .flap-profile > p, .economy-examples p, .economy-note p { font-size: 9.5pt; line-height: 1.28; }
-  .flap-profile-grid { margin-top: 3.5%; padding-top: 3.5%; }
-  .flap-profile-grid span, .economy-examples small, .economy-number span { font-size: 9pt; }
-  .flap-profile-grid strong { font-size: 10pt; }
-  .flap-data span, .sectors span { font-size: 9pt; }
-  .flap-data { padding: 3.5% 0; }
-  .flap-data strong { font-size: 13pt; }
-  .back-cover h2 { font-size: 25pt; }
-  .economy-number { margin: 4.5% 0 4%; padding: 4% 0; }
-  .economy-number strong { font-size: 28pt; }
-  .economy-examples { margin-top: 4%; padding: 4%; }
-  .economy-examples p { padding: 3px 0; }
-  .economy-note { grid-template-columns: 20mm 1fr; padding: 7px 8px; }
-  .economy-note img { width: 18mm; height: 18mm; }
-  .economy-note b { font-size: 9pt; }
-  .qr-tile span { font-size: 8.5pt; }
-  .economy-sources { font-size: 8.5pt; line-height: 1.22; }
-
-  .back .panel { padding: 4.4% 5%; }
-  .back .panel h2 { font-size: 22pt; line-height: .96; }
-  .history-photo { height: 19%; margin-bottom: 3.5%; }
-  .history-photo span, .photo-grid figcaption { font-size: 9pt; }
-  .history-story p { font-size: 10.5pt; line-height: 1.3; }
-  .timeline { gap: 4px; margin-top: 3.5%; }
-  .timeline div { grid-template-columns: 42px 1fr; padding-top: 6px; }
-  .timeline b { font-size: 13pt; }
-  .timeline span { font-size: 10pt; line-height: 1.2; }
-  .history-curiosity { margin-top: 3.5%; padding: 4%; }
-  .history-curiosity b { font-size: 9.5pt; }
-  .history-curiosity p { font-size: 10pt; line-height: 1.3; }
-
-  .location-art { height: 31%; }
-  .location-facts strong { font-size: 13pt; }
-  .location-facts span { font-size: 9.5pt; }
-  .nature-box { margin-top: 3.5%; padding: 4%; }
-  .nature-box > b { font-size: 9.5pt; }
-  .nature-grid { gap: 6px 8px; margin-top: 6px; }
-  .nature-grid strong { font-size: 11pt; }
-  .nature-grid span { font-size: 9.5pt; line-height: 1.2; }
-  .nature-box small { margin-top: 7px; font-size: 9pt; line-height: 1.28; }
-  .location-why { margin-top: 3.5%; padding: 4%; }
-  .location-why b { font-size: 9.5pt; }
-  .location-why p { font-size: 10pt; line-height: 1.3; }
-
-  .photo-grid { height: 26%; }
-  .people-box { margin-top: 4%; padding: 7px 9px; }
-  .people-box > b { font-size: 9.5pt; }
-  .people-grid { gap: 6px 8px; margin-top: 6px; }
-  .people-grid strong { font-size: 13.5pt; }
-  .people-grid span { font-size: 9.5pt; line-height: 1.2; }
-  .people-box small { margin-top: 7px; font-size: 9pt; line-height: 1.28; }
-  .tourism-choices { gap: 6px; margin-top: 4%; }
-  .tourism-choices div { padding: 6px 8px; }
-  .tourism-choices b { font-size: 9.5pt; }
-  .tourism-choices p { font-size: 10pt; line-height: 1.28; }
-
-  .cover-top, .cover-title p { font-size: 8.5pt; }
-  .cover-landmark span { font-size: 8.5pt; }
-  .cover-landmark b { font-size: 11pt; }
-  .title-rule, .cover-footer { font-size: 8.5pt; }
 }
+
